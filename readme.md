@@ -4,7 +4,8 @@
 
 <!--lint ignore no-dead-urls-->
 
-# Awesome Amp CLI [![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![lint](https://github.com/jdorfman/awesome-amp-cli#/actions/workflows/lint.yaml/badge.svg)](https://github.com/jdorfman/awesome-amp-cli#/actions/workflows/lint.yaml)
+# Awesome Amp CLI
+[![Awesome](https://awesome.re/badge.svg)](https://awesome.re) [![lint](https://github.com/jdorfman/awesome-amp-cli#/actions/workflows/lint.yaml/badge.svg)](https://github.com/jdorfman/awesome-amp-cli#/actions/workflows/lint.yaml)
 
 <!-- subtitle -->
 
@@ -24,37 +25,37 @@ An unofficial curated list of resources for Amp CLI, an AI coding agent by Sourc
 
 ## Contents
 
-- [Awesome Amp CLI  ](#awesome-amp-cli--)
+- [Awesome Amp CLI](#awesome-amp-cli)
   - [Contents](#contents)
-  - [Integration with Common CLI Tools](#integration-with-common-cli-tools)
-    - [ps aux](#ps-aux)
-    - [whois](#whois)
-    - [curl](#curl)
-    - [npm](#npm)
-  - [Unofficial Amp CLI Documentation](#unofficial-amp-cli-documentation)
-  - [Official Amp Links](#official-amp-links)
-  - [Contributing](#contributing)
+    - [Integration with Common CLI Tools](#integration-with-common-cli-tools)
+      - [ps aux](#ps-aux)
+      - [whois](#whois)
+      - [curl](#curl)
+      - [npm](#npm)
+    - [Unofficial Amp CLI Documentation](#unofficial-amp-cli-documentation)
+    - [Official Amp Links](#official-amp-links)
+    - [Contributing](#contributing)
     - [Contributors](#contributors)
 
 <!-- CONTENT -->
 
-## Integration with Common CLI Tools
+### Integration with Common CLI Tools
 
 Amp CLI can be seamlessly integrated with other command-line tools to enhance your workflow:
 
-### ps aux
+#### ps aux
 
 ```bash
 ps aux > /tmp/psaux.txt && echo "identify processes consuming the most resources" && cat /tmp/psaux.txt | amp
 ```
 
-### whois
+#### whois
 
 ```bash
  echo "organize and condense the following whois information" && whois example.com | amp
 ```
 
-### curl
+#### curl
 
 ```bash
 echo "convert the cache control max-age value from seconds to days, hours, minutes" $(curl -I https://example.com) | amp
@@ -64,17 +65,17 @@ echo "convert the cache control max-age value from seconds to days, hours, minut
 echo "read the http headers and determine what the domains tech stack is." $(curl -Is https://example.com) | amp
 ```
 
-### npm
+#### npm
 
 ```bash
 npm list --json && echo "identify outdated or vulnerable dependencies" | amp
 ```
 
-## Unofficial Amp CLI Documentation
+### Unofficial Amp CLI Documentation
 
-- [Amp CLI Docs](amp_cli_docs.md)
+- [Amp CLI Docs](https://github.com/jdorfman/awesome-amp-cli/blob/main/amp_cli_docs.md)
 
-## Official Amp Links
+### Official Amp Links
 
 - [Amp](https://ampcode.com)
 - [Amp CLI](https://www.npmjs.com/package/@sourcegraph/amp)
@@ -83,7 +84,7 @@ npm list --json && echo "identify outdated or vulnerable dependencies" | amp
 - [Amp on X](https://x.com/ampcode)
 - [How to Build an Agent](https://ampcode.com/how-to-build-an-agent)
 
-## Contributing
+### Contributing
 
 [Contributions of any kind welcome, just follow the guidelines](contributing.md)!
 
