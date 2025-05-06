@@ -31,6 +31,7 @@ An unofficial curated list of resources for Amp CLI, an AI coding agent by Sourc
     - [whois](#whois)
     - [curl](#curl)
     - [npm](#npm)
+  - [Unofficial Amp CLI Documentation](#unofficial-amp-cli-documentation)
   - [Official Amp Links](#official-amp-links)
   - [Contributing](#contributing)
     - [Contributors](#contributors)
@@ -68,6 +69,10 @@ echo "read the http headers and determine what the domains tech stack is." $(cur
 ```bash
 npm list --json && echo "identify outdated or vulnerable dependencies" | amp
 ```
+
+## Unofficial Amp CLI Documentation
+
+- [Amp CLI Docs](amp_cli_docs.md)
 
 ## Official Amp Links
 
