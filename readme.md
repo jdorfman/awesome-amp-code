@@ -27,8 +27,10 @@ An unofficial curated list of resources for Amp CLI, an AI coding agent by Sourc
 - [Awesome Amp CLI  ](#awesome-amp-cli--)
   - [Contents](#contents)
   - [Integration with Common CLI Tools](#integration-with-common-cli-tools)
-    - [System Administration](#system-administration)
-    - [Package Management](#package-management)
+    - [ps aux](#ps-aux)
+    - [whois](#whois)
+    - [curl](#curl)
+    - [npm](#npm)
   - [Official Amp Links](#official-amp-links)
   - [Contributing](#contributing)
     - [Contributors](#contributors)
@@ -39,15 +41,19 @@ An unofficial curated list of resources for Amp CLI, an AI coding agent by Sourc
 
 Amp CLI can be seamlessly integrated with other command-line tools to enhance your workflow:
 
-### System Administration
+### ps aux
 
 ```bash
 ps aux > /tmp/psaux.txt && echo "identify processes consuming the most resources" && cat /tmp/psaux.txt | amp
 ```
 
+### whois
+
 ```bash
  echo "organize and condense the following whois information" && whois example.com | amp
 ```
+
+### curl
 
 ```bash
 echo "convert the cache control max-age value from seconds to days, hours, minutes" $(curl -I https://example.com) | amp
@@ -57,7 +63,7 @@ echo "convert the cache control max-age value from seconds to days, hours, minut
 echo "read the http headers and determine what the domains tech stack is." $(curl -Is https://example.com) | amp
 ```
 
-### Package Management
+### npm
 
 ```bash
 npm list --json && echo "identify outdated or vulnerable dependencies" | amp
