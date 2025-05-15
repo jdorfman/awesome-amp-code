@@ -206,18 +206,18 @@ Options:
 
 Amp CLI allows you to navigate through your message history:
 
-- Use the arrow keys or Ctrl+P/Ctrl+N to navigate through adjacent messages in history
-- PageUp and PageDown keys jump directly in the history regardless of cursor position
+- Use the arrow keys or `Ctrl+P`/`Ctrl+N` to navigate through adjacent messages in history
+- `PageUp` and `PageDown` keys jump directly in the history regardless of cursor position
 - Your current draft is available at the end of the history
-- Press Ctrl+C or Esc to cancel and return to your draft
+- Press `Ctrl+C` or `Esc` to cancel and return to your draft
 
 ### File Mentions
 
 You can quickly reference files in the CLI by using the file mention feature:
 
-- Type @ followed by a pattern to start fuzzy-searching for files
-- Use Tab or Shift+Tab to navigate through the search results
-- Press Enter to confirm and insert the file mention
+- Type `@` followed by a pattern to start fuzzy-searching for files
+- Use Tab or `Shift+Tab` to navigate through the search results
+- Press `Enter` to confirm and insert the file mention
 
 ### Debugging
 
