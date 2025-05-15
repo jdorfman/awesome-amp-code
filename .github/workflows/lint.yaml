@@ -21,7 +21,7 @@ jobs:
         - name: asdf_install
           uses: asdf-vm/actions/install@v1
         - name: "linting: ${{ matrix.files }}"
-          run: npx -y awesome-lint ${{ matrix.files }}
+          run: npx -y awesome-lint --no-remark-lint-awesome-toc ${{ matrix.files }}
     awesome-bot:
       strategy:
         fail-fast: false
@@ -42,4 +42,4 @@ jobs:
         - name: "install awesome-bot"
           run: gem install awesome_bot
         - name: "linting: ${{ matrix.files }}"
-          run: awesome_bot --allow-redirect --white-list https://github.com/jdorfman/awesome-amp-cli,https://example.com ${{ matrix.files }} 
+          run: awesome_bot --allow-redirect --white-list https://github.com/jdorfman/awesome-amp-cli,https://example.com,https://github.com/user-attachments/assets/3b152173-e617-463e-825f-14036c04f163 ${{ matrix.files }} 

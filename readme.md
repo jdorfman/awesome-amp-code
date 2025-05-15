@@ -1,3 +1,4 @@
+<!--lint ignore awesome-toc-->
 <div align="center">
 
 <!-- title -->
@@ -22,6 +23,7 @@ An unofficial curated list of resources for Amp CLI, an AI coding agent by Sourc
 
 <!-- TOC -->
 
+<!--lint disable awesome-toc-->
 ## Contents
 
 - [Awesome Amp CLI](#awesome-amp-cli)

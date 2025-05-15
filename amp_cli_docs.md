@@ -24,6 +24,8 @@
     - [Allowing Terminal Commands](#allowing-terminal-commands)
   - [Tool Usage](#tool-usage)
   - [Advanced Features](#advanced-features)
+    - [History Navigation](#history-navigation)
+    - [File Mentions](#file-mentions)
     - [Debugging](#debugging)
   - [Troubleshooting](#troubleshooting)
     - [Node.js Version](#nodejs-version)
@@ -77,6 +79,9 @@ In interactive mode:
 - Use `\` followed by `Enter` to insert newlines, or use `Shift+Enter` in supported terminals
 - Press `Ctrl+C` to interrupt the agent or exit
 - Type `help` to see what Amp can help you with
+- Use arrow keys or Ctrl+P/Ctrl+N to navigate through message history
+- Use PageUp and PageDown to jump directly in history
+- Type @ followed by a pattern to fuzzy-search and mention files (use Tab/Shift+Tab to navigate results)
 
 ### Non-Interactive Mode
 
@@ -196,6 +201,23 @@ Options:
 - `!`: Allow and add to allowlist (won't ask again for this command)
 
 ## Advanced Features
+
+### History Navigation
+
+Amp CLI allows you to navigate through your message history:
+
+- Use the arrow keys or `Ctrl+P`/`Ctrl+N` to navigate through adjacent messages in history
+- `PageUp` and `PageDown` keys jump directly in the history regardless of cursor position
+- Your current draft is available at the end of the history
+- Press `Ctrl+C` or `Esc` to cancel and return to your draft
+
+### File Mentions
+
+You can quickly reference files in the CLI by using the file mention feature:
+
+- Type `@` followed by a pattern to start fuzzy-searching for files
+- Use Tab or `Shift+Tab` to navigate through the search results
+- Press `Enter` to confirm and insert the file mention
 
 ### Debugging
 
