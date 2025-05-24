@@ -36,7 +36,7 @@ An unofficial curated list of resources for Amp, an AI coding agent by Sourcegra
         - [whois](#whois)
         - [curl](#curl)
         - [npm](#npm)
-    - [Unofficial Amp CLI Documentation](#unofficial-amp-cli-documentation)
+    - [Built with Amp](#built-with-amp)
     - [Official Amp Links](#official-amp-links)
     - [Contributing](#contributing)
       - [Contributors](#contributors)
@@ -88,9 +88,10 @@ echo "read the http headers and determine what the domains tech stack is." $(cur
 npm list --json && echo "identify outdated or vulnerable dependencies" | amp
 ```
 
-### Unofficial Amp CLI Documentation
+### Built with Amp
 
-- [Amp CLI Docs](https://github.com/jdorfman/awesome-amp-code/blob/main/amp_cli_docs.md)
+- [Unofficial Amp CLI Documentation](https://github.com/jdorfman/awesome-amp-code/blob/main/amp_cli_docs.md)
+- [Vibes Catcher](https://www.vibescatcher.com/)  
 
 ### Official Amp Links
 
