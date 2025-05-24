@@ -11,7 +11,7 @@
 
 <!-- subtitle -->
 
-An unofficial curated list of resources for Amp, an AI coding agent by Sourcegraph
+An **unofficial** curated list of resources for Amp, an AI coding agent by Sourcegraph
 
 <!-- image -->
 
