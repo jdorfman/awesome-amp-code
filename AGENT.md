@@ -2,7 +2,7 @@
 
 ## Build, Lint & Test Commands
 - Lint readme: `npx awesome-lint readme.md`
-- Link check: `awesome_bot --allow-redirect --white-list https://github.com/jdorfman/awesome-amp-cli,https://example.com readme.md`
+- Link check: `awesome_bot --allow-redirect --white-list https://github.com/jdorfman/awesome-amp-code,https://example.com readme.md`
 - Node.js version: Use v21.6.0 (as specified in .tool-versions)
 
 ## Code Style Guidelines

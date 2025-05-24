@@ -5,17 +5,17 @@
 
 <!--lint ignore no-dead-urls-->
 
-# Awesome Amp CLI
+# Awesome Amp Code
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
 <!-- subtitle -->
 
-An unofficial curated list of resources for Amp CLI, an AI coding agent by Sourcegraph
+An unofficial curated list of resources for Amp, an AI coding agent by Sourcegraph
 
 <!-- image -->
 
-<a href="https://github.com/jdorfman/awesome-amp-cli/blob/main/amp_cli_docs.md" target="_blank" rel="noopener noreferrer"> <img src="https://github.com/user-attachments/assets/3b152173-e617-463e-825f-14036c04f163" /></a>
+<a href="https://github.com/jdorfman/awesome-amp-code/blob/main/amp_cli_docs.md" target="_blank" rel="noopener noreferrer"> <img src="https://github.com/user-attachments/assets/44099391-3976-473d-bcf8-95fd7b980f99" /></a>
 
 <!-- description -->
 
@@ -26,13 +26,16 @@ An unofficial curated list of resources for Amp CLI, an AI coding agent by Sourc
 <!--lint disable awesome-toc-->
 ## Contents
 
-- [Awesome Amp CLI](#awesome-amp-cli)
+- [Awesome Amp Code](#awesome-amp-code)
   - [Contents](#contents)
-    - [Integration with Common CLI Tools](#integration-with-common-cli-tools)
-      - [ps aux](#ps-aux)
-      - [whois](#whois)
-      - [curl](#curl)
-      - [npm](#npm)
+    - [AGENT.md](#agentmd)
+    - [Demos](#demos)
+    - [Amp CLI](#amp-cli)
+      - [Integration with Common CLI Tools](#integration-with-common-cli-tools)
+        - [ps aux](#ps-aux)
+        - [whois](#whois)
+        - [curl](#curl)
+        - [npm](#npm)
     - [Unofficial Amp CLI Documentation](#unofficial-amp-cli-documentation)
     - [Official Amp Links](#official-amp-links)
     - [Contributing](#contributing)
@@ -40,23 +43,36 @@ An unofficial curated list of resources for Amp CLI, an AI coding agent by Sourc
 
 <!-- CONTENT -->
 
-### Integration with Common CLI Tools
+### AGENT.md
+
+- [Sourcegraph Cody](https://sourcegraph.com/github.com/sourcegraph/cody/-/blob/AGENT.md)
+- [Zoekt](https://sourcegraph.com/github.com/sourcegraph/zoekt/-/blob/AGENT.md)
+- [Ultimate MCP Client](https://github.com/Dicklesworthstone/ultimate_mcp_client/blob/main/AGENT.md)
+
+### Demos
+
+- [Vibecoding a compiler](https://x.com/GeoffreyHuntley/status/1921336503805886894)
+- [Use Amp & Zapier MCP to turn `*//todo` code comments into Linear issues](https://x.com/jdorfman/status/1926007226969231861)
+
+### Amp CLI
+
+#### Integration with Common CLI Tools
 
 Amp CLI can be seamlessly integrated with other command-line tools to enhance your workflow:
 
-#### ps aux
+##### ps aux
 
 ```bash
 ps aux > /tmp/psaux.txt && echo "identify processes consuming the most resources" && cat /tmp/psaux.txt | amp
 ```
 
-#### whois
+##### whois
 
 ```bash
  echo "organize and condense the following whois information" && whois example.com | amp
 ```
 
-#### curl
+##### curl
 
 ```bash
 echo "convert the cache control max-age value from seconds to days, hours, minutes" $(curl -I https://example.com) | amp
@@ -66,7 +82,7 @@ echo "convert the cache control max-age value from seconds to days, hours, minut
 echo "read the http headers and determine what the domains tech stack is." $(curl -Is https://example.com) | amp
 ```
 
-#### npm
+##### npm
 
 ```bash
 npm list --json && echo "identify outdated or vulnerable dependencies" | amp
@@ -74,7 +90,7 @@ npm list --json && echo "identify outdated or vulnerable dependencies" | amp
 
 ### Unofficial Amp CLI Documentation
 
-- [Amp CLI Docs](https://github.com/jdorfman/awesome-amp-cli/blob/main/amp_cli_docs.md)
+- [Amp CLI Docs](https://github.com/jdorfman/awesome-amp-code/blob/main/amp_cli_docs.md)
 
 ### Official Amp Links
 
@@ -91,4 +107,4 @@ npm list --json && echo "identify outdated or vulnerable dependencies" | amp
 
 #### Contributors
 
-[Thanks goes to these contributors](https://github.com/jdorfman/awesome-amp-cli/graphs/contributors)!
+[Thanks goes to these contributors](https://github.com/jdorfman/awesome-amp-code/graphs/contributors)!
