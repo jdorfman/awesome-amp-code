@@ -16,8 +16,6 @@
   - [Authentication](#authentication)
     - [Web-Based Login](#web-based-login)
     - [API Key Authentication](#api-key-authentication)
-      - [Connected Mode (Default)](#connected-mode-default)
-      - [Isolated Mode](#isolated-mode)
   - [Command Line Options](#command-line-options)
   - [Environment Variables](#environment-variables)
   - [Configuration](#configuration)
@@ -32,6 +30,7 @@
     - [Authentication Issues](#authentication-issues)
     - [Out of Credits](#out-of-credits)
   - [Requirements](#requirements)
+  - [Last updated](#last-updated)
 
 ## Installation
 
@@ -113,31 +112,12 @@ By default, Amp uses a web-based login flow:
 
 You can also authenticate using API keys:
 
-#### Connected Mode (Default)
-
 1. Go to [ampcode.com/settings](https://ampcode.com/settings)
 2. Copy your API key
 3. Set it as an environment variable:
 
 ```bash
 export AMP_API_KEY=your_amp_api_key_here
-```
-
-#### Isolated Mode
-
-Isolated mode requires an Anthropic API key:
-
-1. Get an API key from [Anthropic](https://console.anthropic.com/settings/keys)
-2. Set it as an environment variable:
-
-```bash
-export ANTHROPIC_API_KEY=your_anthropic_api_key_here
-```
-
-3. Run Amp in isolated mode:
-
-```bash
-amp --isolated
 ```
 
 ## Command Line Options
@@ -148,24 +128,24 @@ Amp CLI supports the following options:
 | -------------------- | -------------------------------------------------------------------- |
 | `-h, --help`         | Show help information                                                |
 | `-v, --version`      | Show version information                                             |
-| `--isolated`         | Run in isolated mode (requires ANTHROPIC_API_KEY)                    |
-| `--notifications`    | Enable sound notifications (enabled by default in interactive mode)  |
+| `--notifications`    | Enable sound notifications (enabled by default when interactive)     |
 | `--no-notifications` | Disable sound notifications                                          |
-| `--color`            | Enable color output (enabled by default when stdout/stderr are TTYs) |
+| `--color`            | Enable color output (enabled by default if stdout and stderr are sent to a TTY) |
 | `--no-color`         | Disable color output                                                 |
-| `--log-level`        | Set log level (debug, info, warn, error)                             |
+| `--settings-file`    | Custom settings file path (overrides the default location)          |
+| `--log-level`        | Set log level (error, warn, info, debug, audit)                     |
 | `--log-file`         | Set log file location                                                |
+| `--thread-id`        | Resume from an existing thread ID                                    |
 
 ## Environment Variables
 
-| Variable            | Description                                            |
-| ------------------- | ------------------------------------------------------ |
-| `AMP_API_KEY`       | API key for connected mode                             |
-| `AMP_URL`           | URL of the Amp server (default is https://ampcode.com) |
-| `ANTHROPIC_API_KEY` | Required for isolated mode                             |
-| `ANTHROPIC_API_URL` | Custom Anthropic API endpoint (optional)               |
-| `AMP_LOG_LEVEL`     | Set log level                                          |
-| `AMP_LOG_FILE`      | Set log file location                                  |
+| Variable            | Description                                                          |
+| ------------------- | -------------------------------------------------------------------- |
+| `AMP_API_KEY`       | API key for Amp (see https://ampcode.com/settings)                  |
+| `AMP_URL`           | URL for the Amp service (default is https://ampcode.com/)           |
+| `AMP_LOG_LEVEL`     | Set log level (can also use --log-level)                            |
+| `AMP_LOG_FILE`      | Set log file location (can also use --log-file)                     |
+| `AMP_SETTINGS_FILE` | Set settings file path (can also use --settings-file, default: ~/.config/amp/settings.json) |
 
 ## Configuration
 
@@ -227,11 +207,7 @@ For debugging purposes, you can use:
 amp --log-level debug --log-file amp.log
 ```
 
-To see available tools (for debugging):
 
-```bash
-amp --debug-show-tools
-```
 
 ## Troubleshooting
 
@@ -254,5 +230,8 @@ If you see an "Out of free credits" message, visit [ampcode.com/settings](https:
 ## Requirements
 
 - Node.js v22 or higher
-- Internet connection (for connected mode)
-- Anthropic API key (for isolated mode)
+- Internet connection
+
+## Last updated
+
+2025-05-24
