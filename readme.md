@@ -5,7 +5,7 @@
 
 <!--lint ignore no-dead-urls-->
 
-# Awesome Amp CLI
+# Awesome Amp Code
 
 [![Awesome](https://awesome.re/badge.svg)](https://awesome.re)
 
@@ -26,7 +26,7 @@ An unofficial curated list of resources for Amp, an AI coding agent by Sourcegra
 <!--lint disable awesome-toc-->
 ## Contents
 
-- [Awesome Amp CLI](#awesome-amp-cli)
+- [Awesome Amp Code](#awesome-amp-code)
   - [Contents](#contents)
     - [AGENT.md](#agentmd)
     - [Demos](#demos)
@@ -45,7 +45,14 @@ An unofficial curated list of resources for Amp, an AI coding agent by Sourcegra
 
 ### AGENT.md
 
+- [Sourcegraph Cody](https://sourcegraph.com/github.com/sourcegraph/cody/-/blob/AGENT.md)
+- [Zoekt](https://sourcegraph.com/github.com/sourcegraph/zoekt/-/blob/AGENT.md)
+- [Ultimate MCP Client](https://github.com/Dicklesworthstone/ultimate_mcp_client/blob/main/AGENT.md)
+
 ### Demos
+
+- [Vibecoding a compiler](https://x.com/GeoffreyHuntley/status/1921336503805886894)
+- [Use Amp & Zapier MCP to turn `*//todo` code comments into Linear issues](https://x.com/jdorfman/status/1926007226969231861)
 
 ### Amp CLI
 
