@@ -24,6 +24,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 <!-- TOC -->
 
 <!--lint disable awesome-toc-->
+
 ## Contents
 
 - [Awesome Amp Code](#awesome-amp-code)
@@ -58,8 +59,8 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 ### Built with Amp
 
 - [Unofficial Amp CLI Documentation](https://github.com/jdorfman/awesome-amp-code/blob/main/amp_cli_docs.md)
-- [Vibes Catcher](https://www.vibescatcher.com/)  
-- [MyScratchpad](https://github.com/IDAN-DEVS/myscratchpad-vscode-extension)
+- [Vibes Catcher](https://www.vibescatcher.com/)
+- [MyScratchpad Vscode Extension](https://marketplace.visualstudio.com/items?itemName=jccoder.myscratchpad)
 
 ### Amp CLI
 
