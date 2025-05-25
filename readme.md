@@ -93,7 +93,7 @@ npm list --json && echo "identify outdated or vulnerable dependencies" | amp
 
 - [Unofficial Amp CLI Documentation](https://github.com/jdorfman/awesome-amp-code/blob/main/amp_cli_docs.md)
 - [Vibes Catcher](https://www.vibescatcher.com/)  
-- [MyScratchpad](https://github.com/IDAN-DEVS/myscratchpad-vscode-extension)
+- [MyScratchpad](https://marketplace.visualstudio.com/items?itemName=jccoder.myscratchpad)
 
 ### Official Amp Links
 
