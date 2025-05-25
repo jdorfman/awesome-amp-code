@@ -30,13 +30,13 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
   - [Contents](#contents)
     - [AGENT.md](#agentmd)
     - [Demos](#demos)
+    - [Built with Amp](#built-with-amp)
     - [Amp CLI](#amp-cli)
       - [Integration with Common CLI Tools](#integration-with-common-cli-tools)
         - [ps aux](#ps-aux)
         - [whois](#whois)
         - [curl](#curl)
         - [npm](#npm)
-    - [Built with Amp](#built-with-amp)
     - [Official Amp Links](#official-amp-links)
     - [Contributing](#contributing)
       - [Contributors](#contributors)
@@ -54,6 +54,12 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Vibecoding a compiler](https://x.com/GeoffreyHuntley/status/1921336503805886894)
 - [Use Amp & Zapier MCP to turn `*//todo` code comments into Linear issues](https://x.com/jdorfman/status/1926007226969231861)
 - [Building a VSCode Extension with Amp](https://youtu.be/l-VUgg6NmDs?si=5M-D1YOyG4TWk6xS)
+
+### Built with Amp
+
+- [Unofficial Amp CLI Documentation](https://github.com/jdorfman/awesome-amp-code/blob/main/amp_cli_docs.md)
+- [Vibes Catcher](https://www.vibescatcher.com/)  
+- [MyScratchpad](https://github.com/IDAN-DEVS/myscratchpad-vscode-extension)
 
 ### Amp CLI
 
@@ -88,12 +94,6 @@ echo "read the http headers and determine what the domains tech stack is." $(cur
 ```bash
 npm list --json && echo "identify outdated or vulnerable dependencies" | amp
 ```
-
-### Built with Amp
-
-- [Unofficial Amp CLI Documentation](https://github.com/jdorfman/awesome-amp-code/blob/main/amp_cli_docs.md)
-- [Vibes Catcher](https://www.vibescatcher.com/)  
-- [MyScratchpad](https://github.com/IDAN-DEVS/myscratchpad-vscode-extension)
 
 ### Official Amp Links
 
