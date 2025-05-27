@@ -17,9 +17,11 @@
     - [Web-Based Login](#web-based-login)
     - [API Key Authentication](#api-key-authentication)
   - [Command Line Options](#command-line-options)
+  - [Commands](#commands)
   - [Environment Variables](#environment-variables)
+  - [Examples](#examples)
   - [Configuration](#configuration)
-    - [Allowing Terminal Commands](#allowing-terminal-commands)
+    - [Settings Reference](#settings-reference)
   - [Tool Usage](#tool-usage)
   - [Advanced Features](#advanced-features)
     - [History Navigation](#history-navigation)
@@ -124,18 +126,34 @@ export AMP_API_KEY=your_amp_api_key_here
 
 Amp CLI supports the following options:
 
-| Option               | Description                                                          |
-| -------------------- | -------------------------------------------------------------------- |
-| `-h, --help`         | Show help information                                                |
-| `-v, --version`      | Show version information                                             |
-| `--notifications`    | Enable sound notifications (enabled by default when interactive)     |
-| `--no-notifications` | Disable sound notifications                                          |
-| `--color`            | Enable color output (enabled by default if stdout and stderr are sent to a TTY) |
-| `--no-color`         | Disable color output                                                 |
-| `--settings-file`    | Custom settings file path (overrides the default location)          |
-| `--log-level`        | Set log level (error, warn, info, debug, audit)                     |
-| `--log-file`         | Set log file location                                                |
-| `--thread-id`        | Resume from an existing thread ID                                    |
+| Option                    | Description                                                          |
+| ------------------------- | -------------------------------------------------------------------- |
+| `-h, --help`              | Show help information                                                |
+| `-V, --version`           | Output the version number                                            |
+| `--thread-id [THREAD_ID]` | ID of the thread to continue running                                |
+| `--notifications`         | Enable sound notifications (enabled by default when interactive)     |
+| `--no-notifications`      | Disable sound notifications                                          |
+| `--color`                 | Enable color output (enabled by default if stdout and stderr are sent to a TTY) |
+| `--no-color`              | Disable color output                                                 |
+| `--settings-file <value>` | Custom settings file path (overrides the default location)          |
+| `--log-level <value>`     | Set log level (error, warn, info, debug, audit)                     |
+| `--log-file <value>`      | Set log file location                                                |
+
+## Commands
+
+Amp CLI includes several subcommands for enhanced functionality:
+
+| Command             | Description                                                          |
+| ------------------- | -------------------------------------------------------------------- |
+| `logout`            | Log out by removing stored API key                                   |
+| `login`             | Log in to Amp                                                        |
+| `threads`           | Thread management commands                                           |
+| `threads new`       | Create a new thread and print its ID                                |
+| `threads continue`  | Continue an existing thread (uses last used thread if no ID provided) |
+| `threads fork`      | Create a new thread by forking an existing one and print its ID     |
+| `threads list`      | List all your threads with their titles and share status            |
+| `tools`             | Tool management commands                                             |
+| `tools show`        | Show available tools                                                 |
 
 ## Environment Variables
 
@@ -147,22 +165,63 @@ Amp CLI supports the following options:
 | `AMP_LOG_FILE`      | Set log file location (can also use --log-file)                     |
 | `AMP_SETTINGS_FILE` | Set settings file path (can also use --settings-file, default: ~/.config/amp/settings.json) |
 
+## Examples
+
+Start an interactive session:
+
+```bash
+amp
+```
+
+Run a command in a non-interactive session:
+
+```bash
+echo "commit all my unstaged changes" | amp
+```
+
+Run from a prompt file in a non-interactive session and store output in a file:
+
+```bash
+amp < prompt.txt > output.txt
+```
+
 ## Configuration
 
-Amp CLI stores configuration in a settings file located at:
+Amp can be configured using a JSON settings file located at `~/.config/amp/settings.json`. All settings use the "amp." prefix.
 
-- Linux/macOS: `~/.config/amp/settings.json`
-- Windows: `%APPDATA%\amp\settings.json`
-
-### Allowing Terminal Commands
-
-To allow specific terminal commands to run without confirmation, add them to the allowlist in your settings file:
+Sample configuration:
 
 ```json
 {
-	"amp.commands.allowlist": ["git status", "ls -la"]
+  "amp.notifications.enabled": true,
+  "amp.mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "@modelcontextprotocol/server-filesystem",
+        "/path/to/allowed/dir"
+      ]
+    }
+  },
+  "amp.mcp.disable": [],
+  "amp.tools.disable": [
+    "browser_navigate"
+  ],
+  "amp.commands.allowlist": [
+    "git status",
+    "ls -la",
+    "npm run build"
+  ]
 }
 ```
+
+### Settings Reference
+
+- **`amp.notifications.enabled`**: Enable system sound notifications when agent completes tasks
+- **`amp.mcpServers`**: Model Context Protocol servers to connect to for additional tools
+- **`amp.mcp.disable`**: Array of MCP server names to disable
+- **`amp.tools.disable`**: Array of tool names to disable
+- **`amp.commands.allowlist`**: Array of shell commands that can be executed without confirmation
 
 ## Tool Usage
 
@@ -234,4 +293,4 @@ If you see an "Out of free credits" message, visit [ampcode.com/settings](https:
 
 ## Last updated
 
-2025-05-24
+2025-05-27
