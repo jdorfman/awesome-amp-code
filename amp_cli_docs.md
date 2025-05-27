@@ -128,6 +128,7 @@ Amp CLI supports the following options:
 
 | Option                    | Description                                                          |
 | ------------------------- | -------------------------------------------------------------------- |
+| `-h, --help`              | Show help information                                                |
 | `-V, --version`           | Output the version number                                            |
 | `--thread-id [THREAD_ID]` | ID of the thread to continue running                                |
 | `--notifications`         | Enable sound notifications (enabled by default when interactive)     |
