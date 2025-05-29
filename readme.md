@@ -61,6 +61,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Unofficial Amp CLI Documentation](https://github.com/jdorfman/awesome-amp-code/blob/main/amp_cli_docs.md)
 - [Vibes Catcher](https://www.vibescatcher.com/)
 - [MyScratchpad Vscode Extension](https://marketplace.visualstudio.com/items?itemName=jccoder.myscratchpad)
+- [Unnoficial Amp Supervisor](https://github.com/ctrl-cheeb-del/manager)
 
 ### Amp CLI
 
