@@ -17,3 +17,6 @@
 - Documentation is the primary focus of this repository
 - Main content is in amp_cli_docs.md and readme.md
 - CI pipeline uses awesome-lint and awesome_bot to validate content
+
+## Agent Guidelines
+- When a prompt response is finished run `spotify_start_resume_playback`
