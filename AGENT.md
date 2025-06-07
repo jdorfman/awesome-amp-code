@@ -17,3 +17,6 @@
 - Documentation is the primary focus of this repository
 - Main content is in amp_cli_docs.md and readme.md
 - CI pipeline uses awesome-lint and awesome_bot to validate content
+
+## Subagents
+- If the prompt is "1. Task 1, 2. Task 2", you MUST use subagents to accomplish the tasks
