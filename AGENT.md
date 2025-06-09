@@ -20,3 +20,6 @@
 
 ## Subagents
 - If the prompt is "1. Task 1, 2. Task 2", you MUST use subagents to accomplish the tasks
+
+## Git
+- If `/git` is used in the prompt, you MUST use the following Git commands: `git add`, `git commit`, `git push` to accomplish the task

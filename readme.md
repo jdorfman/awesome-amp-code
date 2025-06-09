@@ -63,6 +63,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [MyScratchpad Vscode Extension](https://marketplace.visualstudio.com/items?itemName=jccoder.myscratchpad)
 - [Unofficial Amp Supervisor](https://github.com/ctrl-cheeb-del/manager)
 - [llm-rules MCP](https://www.npmjs.com/package/llm-rules)
+- [amp.el - Emacs integration for Amp](https://github.com/shaneikennedy/amp.el)
 
 ### Amp CLI
 
