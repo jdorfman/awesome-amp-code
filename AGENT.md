@@ -21,12 +21,7 @@
 ## Subagents
 - If the prompt is "1. Task 1, 2. Task 2", you MUST use subagents to accomplish the tasks
 
-## Git
-- If `/git` is used in the prompt, you MUST use the following Git commands: `git status`, `git add`, `git diff`, `git commit`, `git push` to accomplish the task.
-
-Here's a rewritten version of the prompt with improved clarity and structure:
-
-# Git Command Instructions
+## Git Command Instructions
 
 When `/git` is included in a prompt, you will exclusively use the following Git commands (each in a separate subagent AND in order) to help you accomplish the following tasks:
 
@@ -34,4 +29,4 @@ When `/git` is included in a prompt, you will exclusively use the following Git 
 - `git add` - To stage files for commit
 - `git --no-pager diff` - To view changes between commits or working directory and index
 - `git commit` - To record changes to the repository (summarizing git status and git diff)
-- `git push` - To push local branch content to a remote repository
+- `gh pr create --fill` - Use GitHub CLI to create a pull request
