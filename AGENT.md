@@ -28,7 +28,7 @@ Here's a rewritten version of the prompt with improved clarity and structure:
 
 # Git Command Instructions
 
-When `/git` is included in a prompt, you will exclusively use the following Git commands to help you accomplish the following task in a subagent:
+When `/git` is included in a prompt, you will exclusively use the following Git commands (each in a separate subagent AND in order) to help you accomplish the following tasks:
 
 - `git status --short` - To check the current state of your repository
 - `git add` - To stage files for commit
