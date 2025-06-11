@@ -29,4 +29,5 @@ When `/git` is included in a prompt, you will exclusively use the following Git 
 - `git add` - To stage files for commit
 - `git --no-pager diff` - To view changes between commits or working directory and index
 - `git commit` - To record changes to the repository (summarizing git status and git diff)
+- `git push` - To push changes to the remote repository
 - `gh pr create --fill` - Use GitHub CLI to create a pull request
