@@ -28,10 +28,10 @@ Here's a rewritten version of the prompt with improved clarity and structure:
 
 # Git Command Instructions
 
-When `/git` is included in a prompt, you will exclusively use the following Git commands to help you accomplish the following task:
+When `/git` is included in a prompt, you will exclusively use the following Git commands (each in a separate subagent AND in order) to help you accomplish the following tasks:
 
-- `git status` - To check the current state of your repository
+- `git status --short` - To check the current state of your repository
 - `git add` - To stage files for commit
-- `git diff` - To view changes between commits or working directory and index
+- `git --no-pager diff` - To view changes between commits or working directory and index
 - `git commit` - To record changes to the repository (summarizing git status and git diff)
 - `git push` - To push local branch content to a remote repository
