@@ -64,7 +64,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Unofficial Amp Supervisor](https://github.com/ctrl-cheeb-del/manager)
 - [llm-rules MCP](https://www.npmjs.com/package/llm-rules)
 - [amp.el - Emacs integration for Amp](https://github.com/shaneikennedy/amp.el)
-- [Amp in a Container](https://github.com/madhukarkumar/amp-in-a-container) - Containerized deployment solution for Amp.
+- [Amp in a Container](https://github.com/madhukarkumar/amp-in-a-container)
 
 ### Amp CLI
 
