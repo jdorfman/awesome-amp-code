@@ -32,3 +32,7 @@ directory and index
 - `git commit` - To record changes to the repository (summarizing git status and git diff)
 - `git push` - To push changes to the remote repository
 - `gh pr create --fill` - Use GitHub CLI to create a pull request
+
+## Add link to Built With section
+
+When `/builtwith` followed by a link is included in a prompt, you will add the link to the Built With section of the README.md file.
