@@ -55,16 +55,18 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Vibecoding a compiler](https://x.com/GeoffreyHuntley/status/1921336503805886894)
 - [Use Amp & Zapier MCP to turn `*//todo` code comments into Linear issues](https://x.com/jdorfman/status/1926007226969231861)
 - [Building a VSCode Extension with Amp](https://youtu.be/l-VUgg6NmDs?si=5M-D1YOyG4TWk6xS)
+- [Fun with pie charts](https://x.com/jdorfman/status/1935196938024243551)
 
 ### Built with Amp
 
 - [Unofficial Amp CLI Documentation](https://github.com/jdorfman/awesome-amp-code/blob/main/docs/amp_cli_docs.md)
-- [Vibes Catcher](https://www.vibescatcher.com/)
+- [Multimeter](https://www.multimeter.dev/)
 - [MyScratchpad Vscode Extension](https://marketplace.visualstudio.com/items?itemName=jccoder.myscratchpad)
 - [Unofficial Amp Supervisor](https://github.com/ctrl-cheeb-del/manager)
 - [llm-rules MCP](https://www.npmjs.com/package/llm-rules)
 - [amp.el - Emacs integration for Amp](https://github.com/shaneikennedy/amp.el)
 - [Amp in a Container](https://github.com/madhukarkumar/amp-in-a-container)
+- [Remote Code](https://remote-code.com/)
 
 ### Amp CLI
 
