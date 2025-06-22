@@ -69,6 +69,8 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Remote Code](https://remote-code.com/) - Mobile coding platform that brings AI coding agents to your iPhone.
 - [Sourcegraph Amp AUR](https://github.com/AnirudhKonduru/sourcegraph-amp-aur) - Arch Linux AUR package for Sourcegraph Amp.
 - [PromptVault](https://hex.pm/packages/prompt_vault) - A library for managing prompts and templates in Elixir. [Watch stream](https://www.youtube.com/live/ojaoe3h8hXA?feature=share).
+- [Unofficial Amp Owner's Manual](https://superpromptor.com/amp-owners-manual/) - Comprehensive guide to getting the most out of Amp coding agent.
+- [VibeKanban](https://www.vibekanban.com/) - CLI tool for managing your Kanban boards.
 
 ### Amp CLI
 
