@@ -71,6 +71,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [PromptVault](https://hex.pm/packages/prompt_vault) - A library for managing prompts and templates in Elixir. [Watch stream](https://www.youtube.com/live/ojaoe3h8hXA?feature=share).
 - [Unofficial Amp Owner's Manual](https://superpromptor.com/amp-owners-manual/) - Comprehensive guide to getting the most out of Amp coding agent.
 - [VibeKanban](https://www.vibekanban.com/) - CLI tool for managing your Kanban boards.
+- [Sourcegraph Chrome Extension](https://chromewebstore.google.com/detail/sourcegraph/dgjhfomjieaadpoljlnidmbg) - Chrome extension for code search and navigation.
 
 ### Amp CLI
 
