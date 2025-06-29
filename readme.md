@@ -72,6 +72,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Unofficial Amp Owner's Manual](https://superpromptor.com/amp-owners-manual/) - Comprehensive guide to getting the most out of Amp coding agent.
 - [VibeKanban](https://www.vibekanban.com/) - CLI tool for managing your Kanban boards.
 - [Sourcegraph Chrome Extension](https://chromewebstore.google.com/detail/sourcegraph/dgjhfomjieaadpoljlnidmbg) - Chrome extension for code search and navigation.
+- [CircuitPython Deploy](https://github.com/shantanugoel/circuitpython-deploy) - CircuitPython deployment tool.
 
 ### Amp CLI
 
