@@ -15,7 +15,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 
 <!-- image -->
 
-<img src="https://github.com/user-attachments/assets/44099391-3976-473d-bcf8-95fd7b980f99" />
+<img width=60% src="https://github.com/user-attachments/assets/00c0b998-0c2c-4b7b-bed7-913039bf00b5" />
 
 <!-- description -->
 
