@@ -61,10 +61,10 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 
 - [Unofficial Amp CLI Documentation](https://github.com/jdorfman/awesome-amp-code/blob/main/docs/amp_cli_docs.md) - Comprehensive documentation for Amp CLI with examples and best practices.
 - [Multimeter](https://www.multimeter.dev/) - Coding agent sentiment analysis platform with social features.
-- [MyScratchpad Vscode Extension](https://marketplace.visualstudio.com/items?itemName=jccoder.myscratchpad) - VS Code extension for global and workspace-specific scratch files.
+- [MyScratchpad VS Code Extension](https://marketplace.visualstudio.com/items?itemName=jccoder.myscratchpad) - VS Code extension for global and workspace-specific scratch files.
 - [Unofficial Amp Supervisor](https://github.com/ctrl-cheeb-del/manager) - TUI control panel for managing multiple Amp CLI instances in parallel.
 - [llm-rules MCP](https://www.npmjs.com/package/llm-rules) - Model Context Protocol server for accessing Cursor rules dynamically.
-- [amp.el - Emacs integration for Amp](https://github.com/shaneikennedy/amp.el) - Emacs integration for Amp coding agent.
+- [amp.el](https://github.com/shaneikennedy/amp.el) - Emacs integration for Amp coding agent.
 - [Amp in a Container](https://github.com/madhukarkumar/amp-in-a-container) - Docker container for running Amp CLI with long-running and async tasks.
 - [Remote Code](https://remote-code.com/) - Mobile coding platform that brings AI coding agents to your iPhone.
 - [Sourcegraph Amp AUR](https://github.com/AnirudhKonduru/sourcegraph-amp-aur) - Arch Linux AUR package for Sourcegraph Amp.
@@ -83,7 +83,7 @@ Amp CLI can be seamlessly integrated with other command-line tools to enhance yo
 ##### ps aux
 
 ```bash
-ps aux > /tmp/psaux.txt && echo "identify processes consuming the most resources" && cat /tmp/psaux.txt | amp
+echo "identify processes consuming the most resources" && ps aux | amp
 ```
 
 ##### whois
