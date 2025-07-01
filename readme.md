@@ -73,7 +73,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [VibeKanban](https://www.vibekanban.com/) - CLI tool for managing your Kanban boards.
 - [Sourcegraph Chrome Extension](https://chromewebstore.google.com/detail/sourcegraph/dgjhfomjieaadpoljlnidmbg) - Chrome extension for code search and navigation.
 - [CircuitPython Deploy](https://github.com/shantanugoel/circuitpython-deploy) - CircuitPython deployment tool.
-- [File-Based Amp Prompting Workflows](https://github.com/PriNova/amp-prompting-workflows) - Comprehensive collection of file-based sub-agent orchestration workflows for Amp CLI with persistent document-based communication.
+- [File-Based Amp Prompting Workflows](https://github.com/PriNova/amp-prompting-workflows) - Comprehensive collection of file-based sub-agent orchestration workflows for Amp with persistent document-based communication.
 
 ### Amp CLI
 
