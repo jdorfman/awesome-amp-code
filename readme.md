@@ -76,6 +76,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [File-Based Amp Prompting Workflows](https://github.com/PriNova/amp-prompting-workflows) - Comprehensive collection of file-based sub-agent orchestration workflows for Amp with persistent document-based communication.
 - [Amp Code Review CI](https://github.com/madhukarkumar/amp-code-review-ci) - Continuous integration tool for automated code reviews using Amp.
 - [CodeForge](https://github.com/entrepeneur4lyf/CodeForge) - Golang Development tool built with Amp.
+- [Quad Ops](https://trly.github.io/quad-ops/) - A lightweight GitOps framework for podman containers managed by Quadlet.
 
 ### Amp CLI
 
