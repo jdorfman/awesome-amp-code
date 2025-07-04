@@ -77,6 +77,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Amp Code Review CI](https://github.com/madhukarkumar/amp-code-review-ci) - Continuous integration tool for automated code reviews using Amp.
 - [CodeForge](https://github.com/entrepeneur4lyf/CodeForge) - Golang Development tool built with Amp.
 - [Quad Ops](https://trly.github.io/quad-ops/) - A lightweight GitOps framework for podman containers managed by Quadlet.
+- [HTTPie Collection Viewer](https://httpie.bolaji.de/) - Upload and explore your HTTPie collections with style.
 
 ### Amp CLI
 
