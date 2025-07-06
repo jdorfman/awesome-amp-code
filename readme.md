@@ -79,6 +79,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Quad Ops](https://trly.github.io/quad-ops/) - A lightweight GitOps framework for podman containers managed by Quadlet.
 - [HTTPie Collection Viewer](https://httpie.bolaji.de/) - Upload and explore your HTTPie collections with style.
 - [CleanShot MCP](https://github.com/jdorfman/cleanshot-mcp) - Model Context Protocol server for CleanShot X screenshot and recording.
+- [SageMap](https://sagemap.netlify.app/) - Interactive belief mapping tool that transforms journal entries into visual networks revealing contradictions and connections in your thoughts.
 
 ### Amp CLI
 
