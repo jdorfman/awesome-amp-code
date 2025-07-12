@@ -42,3 +42,6 @@ When `/builtwith` followed by a link is included in a prompt, you will add the l
 When `/gb` is included in a prompt, please create a new git branch. 
 The convention should be: `jd/Year: 2001 Month: 01 Day: 01 Hour: 01 (01-12) Minute: 01 Second: 01-current-file-name`
 Example: `jd/20250703102157-readme-md`
+
+## Add link to @docs/amp_faq.md
+When `/faq` followed by a link is included in a prompt, you will add the link to the @docs/amp_faq.md file in between `---` and `---` Place it above the last question. The update the Last Modified date
