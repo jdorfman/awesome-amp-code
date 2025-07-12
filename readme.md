@@ -39,6 +39,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
         - [curl](#curl)
         - [npm](#npm)
     - [Official Amp Links](#official-amp-links)
+    - [FAQ](#faq)
     - [Contributing](#contributing)
       - [Contributors](#contributors)
 
@@ -126,6 +127,10 @@ npm list --json && echo "identify outdated or vulnerable dependencies" | amp
 - [Raising an Agent Podcast](https://ampcode.com/podcast)
 - [Amp on X](https://x.com/ampcode)
 - [How to Build an Agent](https://ampcode.com/how-to-build-an-agent)
+
+### FAQ
+
+- [Amp FAQ](docs/amp_faq.md) - A collection of the most common questions, edge-cases, and troubleshooting steps for the Amp CLI and Extension.
 
 ### Contributing
 
