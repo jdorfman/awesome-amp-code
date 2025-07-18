@@ -63,12 +63,10 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 ### Built with Amp
 
 - [Unofficial Amp CLI Documentation](https://github.com/jdorfman/awesome-amp-code/blob/main/docs/amp_cli_docs.md) - Comprehensive documentation for Amp CLI with examples and best practices.
-- [Multimeter](https://www.multimeter.dev/) - Coding agent sentiment analysis platform with social features.
 - [MyScratchpad VS Code Extension](https://marketplace.visualstudio.com/items?itemName=jccoder.myscratchpad) - VS Code extension for global and workspace-specific scratch files.
 - [Unofficial Amp Supervisor](https://github.com/ctrl-cheeb-del/manager) - TUI control panel for managing multiple Amp CLI instances in parallel.
 - [llm-rules MCP](https://www.npmjs.com/package/llm-rules) - Model Context Protocol server for accessing Cursor rules dynamically.
 - [amp.el](https://github.com/shaneikennedy/amp.el) - Emacs integration for Amp coding agent.
-- [Amp in a Container](https://github.com/madhukarkumar/amp-in-a-container) - Docker container for running Amp CLI with long-running and async tasks.
 - [Remote Code](https://remote-code.com/) - Mobile coding platform that brings AI coding agents to your iPhone.
 - [Sourcegraph Amp AUR](https://github.com/AnirudhKonduru/sourcegraph-amp-aur) - Arch Linux AUR package for Sourcegraph Amp.
 - [PromptVault](https://hex.pm/packages/prompt_vault) - A library for managing prompts and templates in Elixir. [Watch stream](https://www.youtube.com/live/ojaoe3h8hXA?feature=share).
@@ -83,6 +81,8 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [HTTPie Collection Viewer](https://httpie.bolaji.de/) - Upload and explore your HTTPie collections with style.
 - [CleanShot MCP](https://github.com/jdorfman/cleanshot-mcp) - Model Context Protocol server for CleanShot X screenshot and recording.
 - [SageMap](https://sagemap.netlify.app/) - Interactive belief mapping tool that transforms journal entries into visual networks revealing contradictions and connections in your thoughts.
+- [Jazzberry AI](https://jazzberry.ai/) - The AI Bug Finder
+- [0.email](https://0.email/) - Zero is an AI-native email client that manages your inbox
 
 ### Amp CLI
 
