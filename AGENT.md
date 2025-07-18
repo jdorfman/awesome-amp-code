@@ -35,7 +35,7 @@ directory and index
 
 ## Add link to Built With section
 
-When `/builtwith` followed by a link is included in a prompt, you will add the link to the Built With section of the README.md file.
+When `/builtwith` followed by a link is included in a prompt, you will add the link to the Built With section of the README.md file. If there is a numbered list of urls, create subagents to complete the tasks.
 
 ## Git Branch
 
@@ -44,4 +44,5 @@ The convention should be: `jd/Year: 2001 Month: 01 Day: 01 Hour: 01 (01-12) Minu
 Example: `jd/20250703102157-readme-md`
 
 ## Add link to @docs/amp_faq.md
+
 When `/faq` followed by a link is included in a prompt, you will add the link to the @docs/amp_faq.md file in between `---` and `---` Place it above the last question. The update the Last Modified date
