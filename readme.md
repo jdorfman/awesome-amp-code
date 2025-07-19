@@ -83,6 +83,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [SageMap](https://sagemap.netlify.app/) - Interactive belief mapping tool that transforms journal entries into visual networks revealing contradictions and connections in your thoughts.
 - [Jazzberry AI](https://jazzberry.ai/) - The AI Bug Finder.
 - [0.email](https://0.email/) - Zero is an AI-native email client that manages your inbox.
+- [Arden Stats](https://ardenstats.com/) - Compare your AI usage against everyone else and climb the leaderboards.
 
 ### Amp CLI
 
