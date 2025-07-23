@@ -126,34 +126,36 @@ export AMP_API_KEY=[REDACTED:api-key]
 
 Amp CLI unterstützt die folgenden Optionen:
 
-| Option                    | Beschreibung                                                         |
-| ------------------------- | -------------------------------------------------------------------- |
-| `-h, --help`              | Hilfeinformationen anzeigen                                         |
-| `-V, --version`           | Versionsnummer ausgeben                                              |
-| `--thread-id [THREAD_ID]` | ID des Threads, der fortgesetzt werden soll                         |
-| `--notifications`         | Tonbenachrichtigungen aktivieren (standardmäßig aktiviert wenn interaktiv) |
-| `--no-notifications`      | Tonbenachrichtigungen deaktivieren                                   |
-| `--color`                 | Farbausgabe aktivieren (standardmäßig aktiviert wenn stdout und stderr an ein TTY gesendet werden) |
-| `--no-color`              | Farbausgabe deaktivieren                                             |
-| `--settings-file <value>` | Benutzerdefinierter Einstellungsdateipfad (überschreibt den Standardort) |
-| `--log-level <value>`     | Log-Level setzen (error, warn, info, debug, audit)                  |
-| `--log-file <value>`      | Log-Datei-Speicherort setzen                                        |
+| Option                       | Beschreibung                                                         |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `-V, --version`              | Versionsnummer ausgeben                                              |
+| `--visibility <visibility>`  | Thread-Sichtbarkeit festlegen (private, public, team)               |
+| `--notifications`            | Tonbenachrichtigungen aktivieren (standardmäßig aktiviert wenn interaktiv) |
+| `--no-notifications`         | Tonbenachrichtigungen deaktivieren                                   |
+| `--settings-file <value>`    | Benutzerdefinierter Einstellungsdateipfad (überschreibt den Standardort) |
+| `--log-level <value>`        | Log-Level setzen (error, warn, info, debug, audit)                  |
+| `--log-file <value>`         | Log-Datei-Speicherort setzen                                        |
+| `--dangerously-allow-all`    | Alle Befehlsbestätigungsprompts deaktivieren (Agent führt alle Befehle ohne Nachfrage aus) |
 
 ## Befehle
 
 Amp CLI enthält mehrere Unterbefehle für erweiterte Funktionalität:
 
-| Befehl              | Beschreibung                                                         |
-| ------------------- | -------------------------------------------------------------------- |
-| `logout`            | Abmelden durch Entfernen des gespeicherten API-Schlüssels           |
-| `login`             | Bei Amp anmelden                                                     |
-| `threads`           | Thread-Verwaltungsbefehle                                            |
-| `threads new`       | Neuen Thread erstellen und seine ID ausgeben                        |
-| `threads continue`  | Vorhandenen Thread fortsetzen (verwendet zuletzt verwendeten Thread wenn keine ID angegeben) |
-| `threads fork`      | Neuen Thread durch Verzweigung eines vorhandenen erstellen und seine ID ausgeben |
-| `threads list`      | Alle Ihre Threads mit ihren Titeln und Freigabestatus auflisten     |
-| `tools`             | Tool-Verwaltungsbefehle                                              |
-| `tools show`        | Verfügbare Tools anzeigen                                            |
+| Befehl                    | Beschreibung                                                         |
+| ------------------------- | -------------------------------------------------------------------- |
+| `logout`                  | Abmelden durch Entfernen des gespeicherten API-Schlüssels           |
+| `login`                   | Bei Amp anmelden                                                     |
+| `threads`                 | Thread-Verwaltungsbefehle                                            |
+| `threads new`             | Neuen Thread erstellen und seine ID ausgeben                        |
+| `threads continue`        | Vorhandenen Thread fortsetzen (verwendet zuletzt verwendeten Thread wenn keine ID angegeben) |
+| `threads fork`            | Neuen Thread durch Verzweigung eines vorhandenen erstellen und seine ID ausgeben |
+| `threads list`            | Alle Ihre Threads mit ihren Titeln und Freigabestatus auflisten     |
+| `threads share`           | Thread-Sichtbarkeit ändern oder mit Support teilen                  |
+| `threads compact`         | Thread komprimieren durch Erstellen einer Zusammenfassung zur Reduzierung der Token-Nutzung |
+| `tools`                   | Tool-Verwaltungsbefehle                                              |
+| `tools show`              | Verfügbare Tools anzeigen                                            |
+| `doctor`                  | Support-Bundle für Problembehandlung generieren                     |
+| `update`                  | Amp CLI auf die neueste Version aktualisieren                       |
 
 ## Umgebungsvariablen
 
@@ -203,15 +205,20 @@ Beispielkonfiguration:
       ]
     }
   },
-  "amp.mcp.disable": [],
   "amp.tools.disable": [
-    "browser_navigate"
+    "browser_navigate",
+    "builtin:edit_file"
   ],
   "amp.commands.allowlist": [
     "git status",
     "ls -la",
     "npm run build"
-  ]
+  ],
+  "amp.commands.strict": false,
+  "amp.dangerouslyAllowAll": false,
+  "amp.git.commit.coauthor.enabled": true,
+  "amp.git.commit.ampThread.enabled": true,
+  "amp.updates.autoUpdate.enabled": true
 }
 ```
 
@@ -219,9 +226,13 @@ Beispielkonfiguration:
 
 - **`amp.notifications.enabled`**: System-Tonbenachrichtigungen aktivieren, wenn der Agent Aufgaben abschließt
 - **`amp.mcpServers`**: Model Context Protocol Server, mit denen für zusätzliche Tools eine Verbindung hergestellt werden soll
-- **`amp.mcp.disable`**: Array von MCP-Servernamen, die deaktiviert werden sollen
-- **`amp.tools.disable`**: Array von Tool-Namen, die deaktiviert werden sollen
+- **`amp.tools.disable`**: Array von Tool-Namen, die deaktiviert werden sollen. Verwenden Sie 'builtin:toolname', um nur das eingebaute Tool mit diesem Namen zu deaktivieren (ermöglicht einem MCP-Server, ein Tool mit diesem Namen bereitzustellen).
 - **`amp.commands.allowlist`**: Array von Shell-Befehlen, die ohne Bestätigung ausgeführt werden können
+- **`amp.commands.strict`**: Strenge Befehlsvalidierung aktivieren. Wenn deaktiviert, erhalten bestimmte Befehle wie Bazel eine gelockerte Pfadvalidierung.
+- **`amp.dangerouslyAllowAll`**: Alle Befehlsbestätigungsprompts deaktivieren (Agent führt alle Befehle ohne Nachfrage aus)
+- **`amp.git.commit.coauthor.enabled`**: Amp als Co-Autor in Git-Commits hinzufügen aktivieren
+- **`amp.git.commit.ampThread.enabled`**: Amp-Thread-Trailer in Git-Commits hinzufügen aktivieren
+- **`amp.updates.autoUpdate.enabled`**: Automatische Updates der Amp CLI aktivieren
 
 ## Tool-Verwendung
 
@@ -293,4 +304,4 @@ Wenn Sie eine Meldung "Out of free credits" sehen, besuchen Sie [ampcode.com/set
 
 ## Zuletzt aktualisiert
 
-2025-05-27
+2025-07-23
