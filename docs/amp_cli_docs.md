@@ -130,12 +130,13 @@ Amp CLI supports the following options:
 | ---------------------------- | -------------------------------------------------------------------- |
 | `-V, --version`              | Output the version number                                            |
 | `--visibility <visibility>`  | Set thread visibility (private, public, team)                       |
-| `--notifications`            | Enable sound notifications (enabled by default when interactive)     |
+| `--notifications`            | Enable sound notifications (enabled by default when not in execute mode) |
 | `--no-notifications`         | Disable sound notifications                                          |
 | `--settings-file <value>`    | Custom settings file path (overrides the default location)          |
 | `--log-level <value>`        | Set log level (error, warn, info, debug, audit)                     |
 | `--log-file <value>`         | Set log file location                                                |
 | `--dangerously-allow-all`    | Disable all command confirmation prompts (agent will execute all commands without asking) |
+| `-x, --execute [message]`    | Use execute mode, optionally with user message. In execute mode, agent will execute provided prompt (either as argument, or via stdin). Only last assistant message is printed. Enabled automatically when redirecting stdout. |
 
 ## Commands
 
@@ -175,13 +176,31 @@ Start an interactive session:
 amp
 ```
 
-Run a command in a non-interactive session:
+Start an interactive session with a user message:
 
 ```bash
 echo "commit all my unstaged changes" | amp
 ```
 
-Run from a prompt file in a non-interactive session and store output in a file:
+Use execute mode (`--execute` or `-x`) to send a command to an agent, have it execute it, print only the agent's last message, and then exit:
+
+```bash
+amp -x "what file in this folder is in markdown format?"
+```
+
+Use execute mode and allow agent to use tools that would require approval:
+
+```bash
+amp --dangerously-allow-all -x "Rename all .markdown files to .md. Only print list of renamed files."
+```
+
+Pipe a command to the agent and use execute mode:
+
+```bash
+echo "commit all my unstaged changes" | amp -x --dangerously-allow-all
+```
+
+Execute a prompt from a file and store final assistant message output in a file (redirecting stdout is equivalent to providing `-x`/`--execute`):
 
 ```bash
 amp < prompt.txt > output.txt
@@ -277,8 +296,6 @@ For debugging purposes, you can use:
 amp --log-level debug --log-file amp.log
 ```
 
-
-
 ## Troubleshooting
 
 ### Node.js Version
@@ -304,4 +321,4 @@ If you see an "Out of free credits" message, visit [ampcode.com/settings](https:
 
 ## Last updated
 
-2025-07-23
+2025-07-25

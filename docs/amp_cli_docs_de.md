@@ -119,7 +119,7 @@ Sie können sich auch mit API-Schlüsseln authentifizieren:
 3. Setzen Sie ihn als Umgebungsvariable:
 
 ```bash
-export AMP_API_KEY=[REDACTED:api-key]
+export AMP_API_KEY=your_amp_api_key_here
 ```
 
 ## Kommandozeilenoptionen
@@ -130,12 +130,13 @@ Amp CLI unterstützt die folgenden Optionen:
 | ---------------------------- | -------------------------------------------------------------------- |
 | `-V, --version`              | Versionsnummer ausgeben                                              |
 | `--visibility <visibility>`  | Thread-Sichtbarkeit festlegen (private, public, team)               |
-| `--notifications`            | Tonbenachrichtigungen aktivieren (standardmäßig aktiviert wenn interaktiv) |
+| `--notifications`            | Tonbenachrichtigungen aktivieren (standardmäßig aktiviert wenn nicht im Ausführungsmodus) |
 | `--no-notifications`         | Tonbenachrichtigungen deaktivieren                                   |
 | `--settings-file <value>`    | Benutzerdefinierter Einstellungsdateipfad (überschreibt den Standardort) |
 | `--log-level <value>`        | Log-Level setzen (error, warn, info, debug, audit)                  |
 | `--log-file <value>`         | Log-Datei-Speicherort setzen                                        |
 | `--dangerously-allow-all`    | Alle Befehlsbestätigungsprompts deaktivieren (Agent führt alle Befehle ohne Nachfrage aus) |
+| `-x, --execute [message]`    | Ausführungsmodus verwenden, optional mit Benutzernachricht. Im Ausführungsmodus führt der Agent den bereitgestellten Prompt aus (entweder als Argument oder über stdin). Nur die letzte Assistentennachricht wird ausgegeben. Wird automatisch aktiviert beim Umleiten von stdout. |
 
 ## Befehle
 
@@ -175,13 +176,31 @@ Eine interaktive Sitzung starten:
 amp
 ```
 
-Einen Befehl in einer nicht-interaktiven Sitzung ausführen:
+Eine interaktive Sitzung mit einer Benutzernachricht starten:
 
 ```bash
 echo "commit all my unstaged changes" | amp
 ```
 
-Von einer Prompt-Datei in einer nicht-interaktiven Sitzung ausführen und Ausgabe in einer Datei speichern:
+Ausführungsmodus (`--execute` oder `-x`) verwenden, um einen Befehl an einen Agenten zu senden, ihn ausführen zu lassen, nur die letzte Nachricht des Agenten auszugeben und dann zu beenden:
+
+```bash
+amp -x "what file in this folder is in markdown format?"
+```
+
+Ausführungsmodus verwenden und dem Agenten erlauben, Tools zu verwenden, die normalerweise eine Genehmigung erfordern würden:
+
+```bash
+amp --dangerously-allow-all -x "Rename all .markdown files to .md. Only print list of renamed files."
+```
+
+Einen Befehl an den Agenten weiterleiten und Ausführungsmodus verwenden:
+
+```bash
+echo "commit all my unstaged changes" | amp -x --dangerously-allow-all
+```
+
+Einen Prompt aus einer Datei ausführen und die finale Assistentennachricht in einer Datei speichern (stdout umleiten ist äquivalent zur Bereitstellung von `-x`/`--execute`):
 
 ```bash
 amp < prompt.txt > output.txt
@@ -277,8 +296,6 @@ Für Debugging-Zwecke können Sie verwenden:
 amp --log-level debug --log-file amp.log
 ```
 
-
-
 ## Problembehandlung
 
 ### Node.js Version
@@ -304,4 +321,4 @@ Wenn Sie eine Meldung "Out of free credits" sehen, besuchen Sie [ampcode.com/set
 
 ## Zuletzt aktualisiert
 
-2025-07-23
+2025-07-25
