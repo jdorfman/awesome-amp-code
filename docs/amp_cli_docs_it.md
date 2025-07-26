@@ -119,23 +119,24 @@ Puoi anche autenticarti utilizzando le chiavi API:
 3. Impostala come variabile di ambiente:
 
 ```bash
-export AMP_API_KEY=[REDACTED:api-key]
+export AMP_API_KEY=your_amp_api_key_here
 ```
 
 ## Opzioni della Riga di Comando
 
 Amp CLI supporta le seguenti opzioni:
 
-| Opzione                      | Descrizione                                                          |
+| Opzione                       | Descrizione                                                          |
 | ---------------------------- | -------------------------------------------------------------------- |
 | `-V, --version`              | Mostra il numero di versione                                        |
 | `--visibility <visibility>`  | Imposta la visibilità del thread (private, public, team)           |
-| `--notifications`            | Abilita notifiche sonore (abilitate per impostazione predefinita quando interattivo) |
+| `--notifications`            | Abilita notifiche sonore (abilitate per impostazione predefinita quando non in modalità execute) |
 | `--no-notifications`         | Disabilita notifiche sonore                                         |
 | `--settings-file <value>`    | Percorso personalizzato del file delle impostazioni (sovrascrive la posizione predefinita) |
 | `--log-level <value>`        | Imposta il livello di log (error, warn, info, debug, audit)        |
 | `--log-file <value>`         | Imposta la posizione del file di log                               |
 | `--dangerously-allow-all`    | Disabilita tutti i prompt di conferma dei comandi (l'agente eseguirà tutti i comandi senza chiedere) |
+| `-x, --execute [message]`    | Usa la modalità execute, opzionalmente con messaggio utente. In modalità execute, l'agente eseguirà il prompt fornito (sia come argomento che tramite stdin). Solo l'ultimo messaggio dell'assistente viene stampato. Abilitato automaticamente quando si reindirizza stdout. |
 
 ## Comandi
 
@@ -175,13 +176,31 @@ Avvia una sessione interattiva:
 amp
 ```
 
-Esegui un comando in una sessione non interattiva:
+Avvia una sessione interattiva con un messaggio utente:
 
 ```bash
 echo "commit all my unstaged changes" | amp
 ```
 
-Esegui da un file di prompt in una sessione non interattiva e memorizza l'output in un file:
+Usa la modalità execute (`--execute` o `-x`) per inviare un comando a un agente, farlo eseguire, stampare solo l'ultimo messaggio dell'agente, e poi uscire:
+
+```bash
+amp -x "what file in this folder is in markdown format?"
+```
+
+Usa la modalità execute e permetti all'agente di usare strumenti che richiederebbero approvazione:
+
+```bash
+amp --dangerously-allow-all -x "Rename all .markdown files to .md. Only print list of renamed files."
+```
+
+Invia un comando tramite pipe all'agente e usa la modalità execute:
+
+```bash
+echo "commit all my unstaged changes" | amp -x --dangerously-allow-all
+```
+
+Esegui un prompt da un file e memorizza l'output del messaggio finale dell'assistente in un file (reindirizzare stdout è equivalente a fornire `-x`/`--execute`):
 
 ```bash
 amp < prompt.txt > output.txt
@@ -277,8 +296,6 @@ Per scopi di debug, puoi utilizzare:
 amp --log-level debug --log-file amp.log
 ```
 
-
-
 ## Risoluzione dei Problemi
 
 ### Versione di Node.js
@@ -304,4 +321,4 @@ Se vedi un messaggio "Out of free credits", visita [ampcode.com/settings](https:
 
 ## Ultimo aggiornamento
 
-2025-07-23
+2025-07-25

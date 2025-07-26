@@ -2,7 +2,7 @@
 
 ---
 
-[Amp](https://ampcode.com) es un agente de codificación (coding agent) con IA, en vista previa de investigación de Sourcegraph. Esta es la CLI para Amp; también puedes usar [Amp en VS Code](https://marketplace.visualstudio.com/items?itemName=sourcegraph.amp).
+[Amp](https://ampcode.com) es un agente de codificación con IA, en vista previa de investigación de Sourcegraph. Esta es la CLI para Amp; también puedes usar [Amp en VS Code](https://marketplace.visualstudio.com/items?itemName=sourcegraph.amp).
 
 ## Tabla de Contenidos
 
@@ -119,7 +119,7 @@ También puedes autenticarte usando API keys:
 3. Configúrala como una variable de entorno:
 
 ```bash
-export AMP_API_KEY=[REDACTED:api-key]
+export AMP_API_KEY=your_amp_api_key_here
 ```
 
 ## Opciones de Línea de Comandos
@@ -130,12 +130,13 @@ Amp CLI admite las siguientes opciones:
 | ---------------------------- | -------------------------------------------------------------------- |
 | `-V, --version`              | Mostrar el número de versión                                        |
 | `--visibility <visibility>`  | Establecer visibilidad del hilo (private, public, team)             |
-| `--notifications`            | Habilitar notificaciones de sonido (habilitado por defecto cuando es interactivo) |
+| `--notifications`            | Habilitar notificaciones de sonido (habilitado por defecto cuando no está en modo ejecutar) |
 | `--no-notifications`         | Deshabilitar notificaciones de sonido                               |
 | `--settings-file <value>`    | Ruta de archivo de configuraciones personalizada (anula la ubicación por defecto) |
 | `--log-level <value>`        | Establecer nivel de registro (error, warn, info, debug, audit)      |
 | `--log-file <value>`         | Establecer ubicación del archivo de registro                        |
 | `--dangerously-allow-all`    | Deshabilitar todas las confirmaciones de comandos (el agente ejecutará todos los comandos sin preguntar) |
+| `-x, --execute [message]`    | Usar modo ejecutar, opcionalmente con mensaje de usuario. En modo ejecutar, el agente ejecutará el prompt proporcionado (ya sea como argumento o vía stdin). Solo se imprime el último mensaje del asistente. Se habilita automáticamente al redireccionar stdout. |
 
 ## Comandos
 
@@ -145,7 +146,7 @@ Amp CLI incluye varios subcomandos para funcionalidad mejorada:
 | -------------------------- | -------------------------------------------------------------------- |
 | `logout`                   | Cerrar sesión eliminando la API key almacenada                      |
 | `login`                    | Iniciar sesión en Amp                                               |
-| `threads`                  | Comandos de gestión de hilos (threads)                              |
+| `threads`                  | Comandos de gestión de hilos                                        |
 | `threads new`              | Crear un nuevo hilo e imprimir su ID                                |
 | `threads continue`         | Continuar un hilo existente (usa el último hilo usado si no se proporciona ID) |
 | `threads fork`             | Crear un nuevo hilo bifurcando uno existente e imprimir su ID       |
@@ -175,13 +176,31 @@ Iniciar una sesión interactiva:
 amp
 ```
 
-Ejecutar un comando en una sesión no interactiva:
+Iniciar una sesión interactiva con un mensaje de usuario:
 
 ```bash
 echo "commit all my unstaged changes" | amp
 ```
 
-Ejecutar desde un archivo de prompt en una sesión no interactiva y almacenar salida en un archivo:
+Usar modo ejecutar (`--execute` o `-x`) para enviar un comando a un agente, hacer que lo ejecute, imprimir solo el último mensaje del agente, y luego salir:
+
+```bash
+amp -x "what file in this folder is in markdown format?"
+```
+
+Usar modo ejecutar y permitir que el agente use herramientas que requerirían aprobación:
+
+```bash
+amp --dangerously-allow-all -x "Rename all .markdown files to .md. Only print list of renamed files."
+```
+
+Canalizar un comando al agente y usar modo ejecutar:
+
+```bash
+echo "commit all my unstaged changes" | amp -x --dangerously-allow-all
+```
+
+Ejecutar un prompt desde un archivo y almacenar la salida del último mensaje del asistente en un archivo (redireccionar stdout es equivalente a proporcionar `-x`/`--execute`):
 
 ```bash
 amp < prompt.txt > output.txt
@@ -277,8 +296,6 @@ Para propósitos de depuración, puedes usar:
 amp --log-level debug --log-file amp.log
 ```
 
-
-
 ## Solución de Problemas
 
 ### Versión de Node.js
@@ -304,4 +321,4 @@ Si ves un mensaje de "Out of free credits", visita [ampcode.com/settings](https:
 
 ## Última actualización
 
-2025-07-23
+2025-07-25

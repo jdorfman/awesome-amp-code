@@ -130,12 +130,13 @@ Amp CLI supporte les options suivantes :
 | ---------------------------- | -------------------------------------------------------------------- |
 | `-V, --version`              | Afficher le numéro de version                                       |
 | `--visibility <visibility>`  | Définir la visibilité du thread (private, public, team)             |
-| `--notifications`            | Activer les notifications sonores (activé par défaut en mode interactif) |
+| `--notifications`            | Activer les notifications sonores (activé par défaut quand pas en mode execute) |
 | `--no-notifications`         | Désactiver les notifications sonores                                |
 | `--settings-file <value>`    | Chemin de fichier de paramètres personnalisé (remplace l'emplacement par défaut) |
 | `--log-level <value>`        | Définir le niveau de log (error, warn, info, debug, audit)          |
 | `--log-file <value>`         | Définir l'emplacement du fichier de log                             |
 | `--dangerously-allow-all`    | Désactiver toutes les invites de confirmation de commande (l'agent exécutera toutes les commandes sans demander) |
+| `-x, --execute [message]`    | Utiliser le mode execute, optionnellement avec message utilisateur. En mode execute, l'agent exécutera le prompt fourni (soit comme argument, soit via stdin). Seul le dernier message assistant est affiché. Activé automatiquement lors de la redirection stdout. |
 
 ## Commandes
 
@@ -175,13 +176,31 @@ Démarrer une session interactive :
 amp
 ```
 
-Exécuter une commande dans une session non interactive :
+Démarrer une session interactive avec un message utilisateur :
 
 ```bash
 echo "commit all my unstaged changes" | amp
 ```
 
-Exécuter à partir d'un fichier de prompt dans une session non interactive et stocker la sortie dans un fichier :
+Utiliser le mode execute (`--execute` ou `-x`) pour envoyer une commande à un agent, l'exécuter, afficher seulement le dernier message de l'agent, puis quitter :
+
+```bash
+amp -x "what file in this folder is in markdown format?"
+```
+
+Utiliser le mode execute et permettre à l'agent d'utiliser des outils qui nécessiteraient une approbation :
+
+```bash
+amp --dangerously-allow-all -x "Rename all .markdown files to .md. Only print list of renamed files."
+```
+
+Rediriger une commande vers l'agent et utiliser le mode execute :
+
+```bash
+echo "commit all my unstaged changes" | amp -x --dangerously-allow-all
+```
+
+Exécuter un prompt à partir d'un fichier et stocker le dernier message assistant dans un fichier (rediriger stdout équivaut à fournir `-x`/`--execute`) :
 
 ```bash
 amp < prompt.txt > output.txt
@@ -238,7 +257,7 @@ Configuration d'exemple :
 
 Amp peut utiliser divers outils pour vous aider dans vos tâches. Quand Amp veut utiliser un outil (comme exécuter une commande terminal), il demandera votre confirmation :
 
-```
+```text
 Amp wants to run: git status
 
 Allow this command? [y/n/!]
@@ -277,8 +296,6 @@ Vous pouvez rapidement référencer des fichiers dans la CLI en utilisant la fon
 amp --log-level debug --log-file amp.log
 ```
 
-
-
 ## Dépannage
 
 ### Version de Node.js
@@ -304,4 +321,4 @@ Si vous voyez un message "Out of free credits", visitez [ampcode.com/settings](h
 
 ## Dernière mise à jour
 
-2025-07-23
+2025-07-25
