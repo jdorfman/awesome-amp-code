@@ -84,6 +84,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Jazzberry AI](https://jazzberry.ai/) - The AI Bug Finder.
 - [0.email](https://0.email/) - Zero is an AI-native email client that manages your inbox.
 - [Arden Stats](https://ardenstats.com/) - Compare your AI usage against everyone else and climb the leaderboards.
+- [Sniff](https://github.com/conikeec/sniff) - Misalignment detection in Vibe Coding loops.
 
 ### Amp CLI
 
