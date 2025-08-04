@@ -85,39 +85,36 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [0.email](https://0.email/) - Zero is an AI-native email client that manages your inbox.
 - [Arden Stats](https://ardenstats.com/) - Compare your AI usage against everyone else and climb the leaderboards.
 - [VT Chat](https://vtchat.io.vn/) - VT Chat is a minimal, privacy-first AI chat application with advanced AI capabilities.
+- [Sniff](https://github.com/conikeec/sniff) - Misalignment detection in Vibe Coding loops.
 
 ### Amp CLI
 
 #### Integration with Common CLI Tools
 
-Amp CLI can be seamlessly integrated with other command-line tools to enhance your workflow:
+Amp CLI can be seamlessly integrated with other command-line tools to enhance your workflow. Use the `-x` flag for execute mode or pipe input directly:
 
 ##### ps aux
 
 ```bash
-echo "identify processes consuming the most resources" && ps aux | amp
+ps aux > processes.txt && amp -x "identify processes consuming the most resources in processes.txt"
 ```
 
 ##### whois
 
 ```bash
- echo "organize and condense the following whois information" && whois example.com | amp
+amp -x "organize and condense this whois information" && whois example.com | amp -x
 ```
 
 ##### curl
 
 ```bash
-echo "convert the cache control max-age value from seconds to days, hours, minutes" $(curl -I https://example.com) | amp
-```
-
-```bash
-echo "read the http headers and determine what the domains tech stack is." $(curl -Is https://example.com) | amp
+curl -Is https://github.com > headers.txt && amp -x "analyze the http headers in headers.txt and determine the tech stack"
 ```
 
 ##### npm
 
 ```bash
-npm list --json && echo "identify outdated or vulnerable dependencies" | amp
+npm list --json | amp -x "identify outdated or vulnerable dependencies"
 ```
 
 ### Official Amp Links

@@ -126,34 +126,37 @@ export AMP_API_KEY=your_amp_api_key_here
 
 Amp CLI supports the following options:
 
-| Option                    | Description                                                          |
-| ------------------------- | -------------------------------------------------------------------- |
-| `-h, --help`              | Show help information                                                |
-| `-V, --version`           | Output the version number                                            |
-| `--thread-id [THREAD_ID]` | ID of the thread to continue running                                |
-| `--notifications`         | Enable sound notifications (enabled by default when interactive)     |
-| `--no-notifications`      | Disable sound notifications                                          |
-| `--color`                 | Enable color output (enabled by default if stdout and stderr are sent to a TTY) |
-| `--no-color`              | Disable color output                                                 |
-| `--settings-file <value>` | Custom settings file path (overrides the default location)          |
-| `--log-level <value>`     | Set log level (error, warn, info, debug, audit)                     |
-| `--log-file <value>`      | Set log file location                                                |
+| Option                       | Description                                                          |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `-V, --version`              | Output the version number                                            |
+| `--visibility <visibility>`  | Set thread visibility (private, public, team)                       |
+| `--notifications`            | Enable sound notifications (enabled by default when not in execute mode) |
+| `--no-notifications`         | Disable sound notifications                                          |
+| `--settings-file <value>`    | Custom settings file path (overrides the default location)          |
+| `--log-level <value>`        | Set log level (error, warn, info, debug, audit)                     |
+| `--log-file <value>`         | Set log file location                                                |
+| `--dangerously-allow-all`    | Disable all command confirmation prompts (agent will execute all commands without asking) |
+| `-x, --execute [message]`    | Use execute mode, optionally with user message. In execute mode, agent will execute provided prompt (either as argument, or via stdin). Only last assistant message is printed. Enabled automatically when redirecting stdout. |
 
 ## Commands
 
 Amp CLI includes several subcommands for enhanced functionality:
 
-| Command             | Description                                                          |
-| ------------------- | -------------------------------------------------------------------- |
-| `logout`            | Log out by removing stored API key                                   |
-| `login`             | Log in to Amp                                                        |
-| `threads`           | Thread management commands                                           |
-| `threads new`       | Create a new thread and print its ID                                |
-| `threads continue`  | Continue an existing thread (uses last used thread if no ID provided) |
-| `threads fork`      | Create a new thread by forking an existing one and print its ID     |
-| `threads list`      | List all your threads with their titles and share status            |
-| `tools`             | Tool management commands                                             |
-| `tools show`        | Show available tools                                                 |
+| Command                    | Description                                                          |
+| -------------------------- | -------------------------------------------------------------------- |
+| `logout`                   | Log out by removing stored API key                                   |
+| `login`                    | Log in to Amp                                                        |
+| `threads`                  | Thread management commands                                           |
+| `threads new`              | Create a new thread and print its ID                                |
+| `threads continue`         | Continue an existing thread (uses last used thread if no ID provided) |
+| `threads fork`             | Create a new thread by forking an existing one and print its ID     |
+| `threads list`             | List all your threads with their titles and share status            |
+| `threads share`            | Change thread visibility or share with support                      |
+| `threads compact`          | Compact a thread by creating a summary to reduce token usage        |
+| `tools`                    | Tool management commands                                             |
+| `tools show`               | Show available tools                                                 |
+| `doctor`                   | Generate a support bundle for troubleshooting                       |
+| `update`                   | Update Amp CLI to the latest version                                |
 
 ## Environment Variables
 
@@ -173,13 +176,31 @@ Start an interactive session:
 amp
 ```
 
-Run a command in a non-interactive session:
+Start an interactive session with a user message:
 
 ```bash
 echo "commit all my unstaged changes" | amp
 ```
 
-Run from a prompt file in a non-interactive session and store output in a file:
+Use execute mode (`--execute` or `-x`) to send a command to an agent, have it execute it, print only the agent's last message, and then exit:
+
+```bash
+amp -x "what file in this folder is in markdown format?"
+```
+
+Use execute mode and allow agent to use tools that would require approval:
+
+```bash
+amp --dangerously-allow-all -x "Rename all .markdown files to .md. Only print list of renamed files."
+```
+
+Pipe a command to the agent and use execute mode:
+
+```bash
+echo "commit all my unstaged changes" | amp -x --dangerously-allow-all
+```
+
+Execute a prompt from a file and store final assistant message output in a file (redirecting stdout is equivalent to providing `-x`/`--execute`):
 
 ```bash
 amp < prompt.txt > output.txt
@@ -203,15 +224,20 @@ Sample configuration:
       ]
     }
   },
-  "amp.mcp.disable": [],
   "amp.tools.disable": [
-    "browser_navigate"
+    "browser_navigate",
+    "builtin:edit_file"
   ],
   "amp.commands.allowlist": [
     "git status",
     "ls -la",
     "npm run build"
-  ]
+  ],
+  "amp.commands.strict": false,
+  "amp.dangerouslyAllowAll": false,
+  "amp.git.commit.coauthor.enabled": true,
+  "amp.git.commit.ampThread.enabled": true,
+  "amp.updates.autoUpdate.enabled": true
 }
 ```
 
@@ -219,9 +245,13 @@ Sample configuration:
 
 - **`amp.notifications.enabled`**: Enable system sound notifications when agent completes tasks
 - **`amp.mcpServers`**: Model Context Protocol servers to connect to for additional tools
-- **`amp.mcp.disable`**: Array of MCP server names to disable
-- **`amp.tools.disable`**: Array of tool names to disable
+- **`amp.tools.disable`**: Array of tool names to disable. Use 'builtin:toolname' to disable only the builtin tool with that name (allowing an MCP server to provide a tool by that name).
 - **`amp.commands.allowlist`**: Array of shell commands that can be executed without confirmation
+- **`amp.commands.strict`**: Enable strict command validation. When disabled, certain commands like Bazel get relaxed path validation.
+- **`amp.dangerouslyAllowAll`**: Disable all command confirmation prompts (agent will execute all commands without asking)
+- **`amp.git.commit.coauthor.enabled`**: Enable adding Amp as co-author in git commits
+- **`amp.git.commit.ampThread.enabled`**: Enable adding Amp-Thread trailer in git commits
+- **`amp.updates.autoUpdate.enabled`**: Enable automatic updates of the Amp CLI
 
 ## Tool Usage
 
@@ -266,8 +296,6 @@ For debugging purposes, you can use:
 amp --log-level debug --log-file amp.log
 ```
 
-
-
 ## Troubleshooting
 
 ### Node.js Version
@@ -293,4 +321,4 @@ If you see an "Out of free credits" message, visit [ampcode.com/settings](https:
 
 ## Last updated
 
-2025-05-27
+2025-07-25

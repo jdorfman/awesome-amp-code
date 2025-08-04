@@ -119,41 +119,44 @@ Sie können sich auch mit API-Schlüsseln authentifizieren:
 3. Setzen Sie ihn als Umgebungsvariable:
 
 ```bash
-export AMP_API_KEY=[REDACTED:api-key]
+export AMP_API_KEY=your_amp_api_key_here
 ```
 
 ## Kommandozeilenoptionen
 
 Amp CLI unterstützt die folgenden Optionen:
 
-| Option                    | Beschreibung                                                         |
-| ------------------------- | -------------------------------------------------------------------- |
-| `-h, --help`              | Hilfeinformationen anzeigen                                         |
-| `-V, --version`           | Versionsnummer ausgeben                                              |
-| `--thread-id [THREAD_ID]` | ID des Threads, der fortgesetzt werden soll                         |
-| `--notifications`         | Tonbenachrichtigungen aktivieren (standardmäßig aktiviert wenn interaktiv) |
-| `--no-notifications`      | Tonbenachrichtigungen deaktivieren                                   |
-| `--color`                 | Farbausgabe aktivieren (standardmäßig aktiviert wenn stdout und stderr an ein TTY gesendet werden) |
-| `--no-color`              | Farbausgabe deaktivieren                                             |
-| `--settings-file <value>` | Benutzerdefinierter Einstellungsdateipfad (überschreibt den Standardort) |
-| `--log-level <value>`     | Log-Level setzen (error, warn, info, debug, audit)                  |
-| `--log-file <value>`      | Log-Datei-Speicherort setzen                                        |
+| Option                       | Beschreibung                                                         |
+| ---------------------------- | -------------------------------------------------------------------- |
+| `-V, --version`              | Versionsnummer ausgeben                                              |
+| `--visibility <visibility>`  | Thread-Sichtbarkeit festlegen (private, public, team)               |
+| `--notifications`            | Tonbenachrichtigungen aktivieren (standardmäßig aktiviert wenn nicht im Ausführungsmodus) |
+| `--no-notifications`         | Tonbenachrichtigungen deaktivieren                                   |
+| `--settings-file <value>`    | Benutzerdefinierter Einstellungsdateipfad (überschreibt den Standardort) |
+| `--log-level <value>`        | Log-Level setzen (error, warn, info, debug, audit)                  |
+| `--log-file <value>`         | Log-Datei-Speicherort setzen                                        |
+| `--dangerously-allow-all`    | Alle Befehlsbestätigungsprompts deaktivieren (Agent führt alle Befehle ohne Nachfrage aus) |
+| `-x, --execute [message]`    | Ausführungsmodus verwenden, optional mit Benutzernachricht. Im Ausführungsmodus führt der Agent den bereitgestellten Prompt aus (entweder als Argument oder über stdin). Nur die letzte Assistentennachricht wird ausgegeben. Wird automatisch aktiviert beim Umleiten von stdout. |
 
 ## Befehle
 
 Amp CLI enthält mehrere Unterbefehle für erweiterte Funktionalität:
 
-| Befehl              | Beschreibung                                                         |
-| ------------------- | -------------------------------------------------------------------- |
-| `logout`            | Abmelden durch Entfernen des gespeicherten API-Schlüssels           |
-| `login`             | Bei Amp anmelden                                                     |
-| `threads`           | Thread-Verwaltungsbefehle                                            |
-| `threads new`       | Neuen Thread erstellen und seine ID ausgeben                        |
-| `threads continue`  | Vorhandenen Thread fortsetzen (verwendet zuletzt verwendeten Thread wenn keine ID angegeben) |
-| `threads fork`      | Neuen Thread durch Verzweigung eines vorhandenen erstellen und seine ID ausgeben |
-| `threads list`      | Alle Ihre Threads mit ihren Titeln und Freigabestatus auflisten     |
-| `tools`             | Tool-Verwaltungsbefehle                                              |
-| `tools show`        | Verfügbare Tools anzeigen                                            |
+| Befehl                    | Beschreibung                                                         |
+| ------------------------- | -------------------------------------------------------------------- |
+| `logout`                  | Abmelden durch Entfernen des gespeicherten API-Schlüssels           |
+| `login`                   | Bei Amp anmelden                                                     |
+| `threads`                 | Thread-Verwaltungsbefehle                                            |
+| `threads new`             | Neuen Thread erstellen und seine ID ausgeben                        |
+| `threads continue`        | Vorhandenen Thread fortsetzen (verwendet zuletzt verwendeten Thread wenn keine ID angegeben) |
+| `threads fork`            | Neuen Thread durch Verzweigung eines vorhandenen erstellen und seine ID ausgeben |
+| `threads list`            | Alle Ihre Threads mit ihren Titeln und Freigabestatus auflisten     |
+| `threads share`           | Thread-Sichtbarkeit ändern oder mit Support teilen                  |
+| `threads compact`         | Thread komprimieren durch Erstellen einer Zusammenfassung zur Reduzierung der Token-Nutzung |
+| `tools`                   | Tool-Verwaltungsbefehle                                              |
+| `tools show`              | Verfügbare Tools anzeigen                                            |
+| `doctor`                  | Support-Bundle für Problembehandlung generieren                     |
+| `update`                  | Amp CLI auf die neueste Version aktualisieren                       |
 
 ## Umgebungsvariablen
 
@@ -173,13 +176,31 @@ Eine interaktive Sitzung starten:
 amp
 ```
 
-Einen Befehl in einer nicht-interaktiven Sitzung ausführen:
+Eine interaktive Sitzung mit einer Benutzernachricht starten:
 
 ```bash
 echo "commit all my unstaged changes" | amp
 ```
 
-Von einer Prompt-Datei in einer nicht-interaktiven Sitzung ausführen und Ausgabe in einer Datei speichern:
+Ausführungsmodus (`--execute` oder `-x`) verwenden, um einen Befehl an einen Agenten zu senden, ihn ausführen zu lassen, nur die letzte Nachricht des Agenten auszugeben und dann zu beenden:
+
+```bash
+amp -x "what file in this folder is in markdown format?"
+```
+
+Ausführungsmodus verwenden und dem Agenten erlauben, Tools zu verwenden, die normalerweise eine Genehmigung erfordern würden:
+
+```bash
+amp --dangerously-allow-all -x "Rename all .markdown files to .md. Only print list of renamed files."
+```
+
+Einen Befehl an den Agenten weiterleiten und Ausführungsmodus verwenden:
+
+```bash
+echo "commit all my unstaged changes" | amp -x --dangerously-allow-all
+```
+
+Einen Prompt aus einer Datei ausführen und die finale Assistentennachricht in einer Datei speichern (stdout umleiten ist äquivalent zur Bereitstellung von `-x`/`--execute`):
 
 ```bash
 amp < prompt.txt > output.txt
@@ -203,15 +224,20 @@ Beispielkonfiguration:
       ]
     }
   },
-  "amp.mcp.disable": [],
   "amp.tools.disable": [
-    "browser_navigate"
+    "browser_navigate",
+    "builtin:edit_file"
   ],
   "amp.commands.allowlist": [
     "git status",
     "ls -la",
     "npm run build"
-  ]
+  ],
+  "amp.commands.strict": false,
+  "amp.dangerouslyAllowAll": false,
+  "amp.git.commit.coauthor.enabled": true,
+  "amp.git.commit.ampThread.enabled": true,
+  "amp.updates.autoUpdate.enabled": true
 }
 ```
 
@@ -219,9 +245,13 @@ Beispielkonfiguration:
 
 - **`amp.notifications.enabled`**: System-Tonbenachrichtigungen aktivieren, wenn der Agent Aufgaben abschließt
 - **`amp.mcpServers`**: Model Context Protocol Server, mit denen für zusätzliche Tools eine Verbindung hergestellt werden soll
-- **`amp.mcp.disable`**: Array von MCP-Servernamen, die deaktiviert werden sollen
-- **`amp.tools.disable`**: Array von Tool-Namen, die deaktiviert werden sollen
+- **`amp.tools.disable`**: Array von Tool-Namen, die deaktiviert werden sollen. Verwenden Sie 'builtin:toolname', um nur das eingebaute Tool mit diesem Namen zu deaktivieren (ermöglicht einem MCP-Server, ein Tool mit diesem Namen bereitzustellen).
 - **`amp.commands.allowlist`**: Array von Shell-Befehlen, die ohne Bestätigung ausgeführt werden können
+- **`amp.commands.strict`**: Strenge Befehlsvalidierung aktivieren. Wenn deaktiviert, erhalten bestimmte Befehle wie Bazel eine gelockerte Pfadvalidierung.
+- **`amp.dangerouslyAllowAll`**: Alle Befehlsbestätigungsprompts deaktivieren (Agent führt alle Befehle ohne Nachfrage aus)
+- **`amp.git.commit.coauthor.enabled`**: Amp als Co-Autor in Git-Commits hinzufügen aktivieren
+- **`amp.git.commit.ampThread.enabled`**: Amp-Thread-Trailer in Git-Commits hinzufügen aktivieren
+- **`amp.updates.autoUpdate.enabled`**: Automatische Updates der Amp CLI aktivieren
 
 ## Tool-Verwendung
 
@@ -266,8 +296,6 @@ Für Debugging-Zwecke können Sie verwenden:
 amp --log-level debug --log-file amp.log
 ```
 
-
-
 ## Problembehandlung
 
 ### Node.js Version
@@ -293,4 +321,4 @@ Wenn Sie eine Meldung "Out of free credits" sehen, besuchen Sie [ampcode.com/set
 
 ## Zuletzt aktualisiert
 
-2025-05-27
+2025-07-25
