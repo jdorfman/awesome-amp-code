@@ -1,7 +1,5 @@
 # Unofficial Amp CLI Documentation
 
----
-
 [Amp](https://ampcode.com) is an AI coding agent, in research preview from Sourcegraph. This is the CLI for Amp; you can also use [Amp in VS Code](https://marketplace.visualstudio.com/items?itemName=sourcegraph.amp).
 
 ## Table of Contents
@@ -59,7 +57,7 @@ pnpm add -g @sourcegraph/amp
 After installation, you can start using Amp CLI immediately:
 
 ```bash
-amp
+amp login
 ```
 
 On first run, Amp will guide you through the authentication process.
@@ -126,46 +124,55 @@ export AMP_API_KEY=your_amp_api_key_here
 
 Amp CLI supports the following options:
 
-| Option                       | Description                                                          |
-| ---------------------------- | -------------------------------------------------------------------- |
-| `-V, --version`              | Output the version number                                            |
-| `--visibility <visibility>`  | Set thread visibility (private, public, team)                       |
-| `--notifications`            | Enable sound notifications (enabled by default when not in execute mode) |
-| `--no-notifications`         | Disable sound notifications                                          |
-| `--settings-file <value>`    | Custom settings file path (overrides the default location)          |
-| `--log-level <value>`        | Set log level (error, warn, info, debug, audit)                     |
-| `--log-file <value>`         | Set log file location                                                |
-| `--dangerously-allow-all`    | Disable all command confirmation prompts (agent will execute all commands without asking) |
-| `-x, --execute [message]`    | Use execute mode, optionally with user message. In execute mode, agent will execute provided prompt (either as argument, or via stdin). Only last assistant message is printed. Enabled automatically when redirecting stdout. |
+| Option                      | Description |
+| --------------------------- | ----------- |
+| `-V, --version`             | Output the version number |
+| `--visibility <visibility>` | Set thread visibility (private, public, team) |
+| `--notifications`           | Enable sound notifications (enabled by default when not in execute mode) |
+| `--no-notifications`        | Disable sound notifications (enabled by default when not in execute mode) |
+| `--settings-file <value>`   | Custom settings file path (overrides the default location) |
+| `--log-level <value>`       | Set log level (error, warn, info, debug, audit) |
+| `--log-file <value>`        | Set log file location |
+| `--dangerously-allow-all`   | Disable all command confirmation prompts (agent will execute all commands without asking) |
+| `--mcp-config <value>`      | JSON configuration or file path for MCP servers to merge with existing settings |
+| `--try-gpt5`                | Try GPT-5 as the primary agent model (limited time; see https://ampcode.com/news/gpt-5) |
+| `-x, --execute [message]`   | Use execute mode, optionally with user message. In execute mode, agent will execute provided prompt (either as argument, or via stdin). Only last assistant message is printed. Enabled automatically when redirecting stdout. |
 
 ## Commands
 
 Amp CLI includes several subcommands for enhanced functionality:
 
-| Command                    | Description                                                          |
-| -------------------------- | -------------------------------------------------------------------- |
-| `logout`                   | Log out by removing stored API key                                   |
-| `login`                    | Log in to Amp                                                        |
-| `threads`                  | Thread management commands                                           |
-| `threads new`              | Create a new thread and print its ID                                |
-| `threads continue`         | Continue an existing thread (uses last used thread if no ID provided) |
-| `threads fork`             | Create a new thread by forking an existing one and print its ID     |
-| `threads list`             | List all your threads with their titles and share status            |
-| `threads share`            | Change thread visibility or share with support                      |
-| `threads compact`          | Compact a thread by creating a summary to reduce token usage        |
-| `tools`                    | Tool management commands                                             |
-| `tools show`               | Show available tools                                                 |
-| `doctor`                   | Generate a support bundle for troubleshooting                       |
-| `update`                   | Update Amp CLI to the latest version                                |
+| Command               | Description |
+| --------------------- | ----------- |
+| `logout`              | Log out by removing stored API key |
+| `login`               | Log in to Amp |
+| `threads`             | Manage threads |
+| `threads new`         | Create a new thread |
+| `threads continue`    | Continue an existing thread |
+| `threads fork`        | Fork an existing thread |
+| `threads list`        | List all threads |
+| `threads share`       | Share a thread |
+| `threads compact`     | Compact a thread |
+| `tools`               | Tool management commands |
+| `tools list`          | List all active tools (including MCP tools) |
+| `tools show`          | Show details about an active tool |
+| `permissions`         | Manage permissions |
+| `permissions list`    | List permissions |
+| `permissions test`    | Test permissions |
+| `permissions edit`    | Edit permissions |
+| `permissions add`     | Add permission rule |
+| `permissions migrate` | Migrate allowlist |
+| `doctor`              | Generate support bundle |
+| `update`              | Update Amp CLI |
 
 ## Environment Variables
 
-| Variable            | Description                                                          |
-| ------------------- | -------------------------------------------------------------------- |
-| `AMP_API_KEY`       | API key for Amp (see https://ampcode.com/settings)                  |
-| `AMP_URL`           | URL for the Amp service (default is https://ampcode.com/)           |
-| `AMP_LOG_LEVEL`     | Set log level (can also use --log-level)                            |
-| `AMP_LOG_FILE`      | Set log file location (can also use --log-file)                     |
+| Variable            | Description |
+| ------------------- | ----------- |
+| `AMP_API_KEY`       | API key for Amp (see https://ampcode.com/settings) |
+| `AMP_URL`           | URL for the Amp service (default is https://ampcode.com/) |
+| `AMP_LOG_LEVEL`     | Set log level (can also use --log-level) |
+| `AMP_LOG_FILE`      | Set log file location (can also use --log-file) |
 | `AMP_SETTINGS_FILE` | Set settings file path (can also use --settings-file, default: ~/.config/amp/settings.json) |
 
 ## Examples
@@ -200,6 +207,12 @@ Pipe a command to the agent and use execute mode:
 echo "commit all my unstaged changes" | amp -x --dangerously-allow-all
 ```
 
+Pipe data to the agent and send along a prompt in execute mode:
+
+```bash
+cat ~/.zshrc | amp -x "what does the 'beautiful' function do?"
+```
+
 Execute a prompt from a file and store final assistant message output in a file (redirecting stdout is equivalent to providing `-x`/`--execute`):
 
 ```bash
@@ -215,6 +228,7 @@ Sample configuration:
 ```json
 {
   "amp.notifications.enabled": true,
+  "amp.notifications.system.enabled": true,
   "amp.mcpServers": {
     "filesystem": {
       "command": "npx",
@@ -228,30 +242,37 @@ Sample configuration:
     "browser_navigate",
     "builtin:edit_file"
   ],
-  "amp.commands.allowlist": [
-    "git status",
-    "ls -la",
-    "npm run build"
+  "amp.permissions": [
+    {
+      "tool": "Bash",
+      "action": "ask",
+      "matches": {
+        "cmd": [
+          "git push*",
+          "git commit*"
+        ]
+      }
+    }
   ],
-  "amp.commands.strict": false,
+  "amp.guardedFiles.allowlist": [],
   "amp.dangerouslyAllowAll": false,
   "amp.git.commit.coauthor.enabled": true,
-  "amp.git.commit.ampThread.enabled": true,
-  "amp.updates.autoUpdate.enabled": true
+  "amp.git.commit.ampThread.enabled": true
 }
 ```
 
 ### Settings Reference
 
 - **`amp.notifications.enabled`**: Enable system sound notifications when agent completes tasks
+- **`amp.notifications.system.enabled`**: Enable system notifications when terminal is not focused
 - **`amp.mcpServers`**: Model Context Protocol servers to connect to for additional tools
-- **`amp.tools.disable`**: Array of tool names to disable. Use 'builtin:toolname' to disable only the builtin tool with that name (allowing an MCP server to provide a tool by that name).
-- **`amp.commands.allowlist`**: Array of shell commands that can be executed without confirmation
-- **`amp.commands.strict`**: Enable strict command validation. When disabled, certain commands like Bazel get relaxed path validation.
+- **`amp.tools.disable`**: Array of tool names to disable. Use `builtin:toolname` to disable only the builtin tool with that name (allowing an MCP server to provide a tool by that name).
+- **`amp.permissions`**: Permission rules for tool calls. See `amp permissions --help`.
+- **`amp.guardedFiles.allowlist`**: File glob patterns allowed without confirmation; takes precedence over built-in denylist.
 - **`amp.dangerouslyAllowAll`**: Disable all command confirmation prompts (agent will execute all commands without asking)
 - **`amp.git.commit.coauthor.enabled`**: Enable adding Amp as co-author in git commits
 - **`amp.git.commit.ampThread.enabled`**: Enable adding Amp-Thread trailer in git commits
-- **`amp.updates.autoUpdate.enabled`**: Enable automatic updates of the Amp CLI
+- **`amp.proxy`**: Proxy URL used for both HTTP and HTTPS requests to the Amp server
 
 ## Tool Usage
 
@@ -321,4 +342,4 @@ If you see an "Out of free credits" message, visit [ampcode.com/settings](https:
 
 ## Last updated
 
-2025-07-25
+2025-08-15
