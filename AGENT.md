@@ -21,27 +21,9 @@
 - Main content is in amp_cli_docs.md and readme.md
 - CI pipeline uses awesome-lint and awesome_bot to validate content
 
-## Git Commands
-
-When `/git` is included in a prompt, you will exclusively use the following Git commands (each in a separate subagent AND in order) to help you accomplish the following tasks:
-
-- `git status -short` - To check the current state of your repository
-- `git add` - To stage files for commit
-- `git -no-pager diff` - To view changes between commits or working
-directory and index
-- `git commit` - To record changes to the repository (summarizing git status and git diff)
-- `git push` - To push changes to the remote repository
-- `gh pr create --fill` - Use GitHub CLI to create a pull request
-
 ## Add link to Built With section
 
 When `/builtwith` followed by a link is included in a prompt, you will add the link to the Built With section of the README.md file. If there is a numbered list of urls, create subagents to complete the tasks.
-
-## Git Branch
-
-When `/gb` is included in a prompt, please create a new git branch. 
-The convention should be: `jd/Year: 2001 Month: 01 Day: 01 Hour: 01 (01-12) Minute: 01 Second: 01-current-file-name`
-Example: `jd/20250703102157-readme-md`
 
 ## Add link to @docs/amp_faq.md
 
