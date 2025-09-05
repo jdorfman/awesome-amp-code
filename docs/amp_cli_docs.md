@@ -87,7 +87,7 @@ In interactive mode:
 You can use Amp in non-interactive mode by piping content to it:
 
 ```bash
-echo "commit all my unstaged changes" | amp
+amp -x "commit all my unstaged changes"
 ```
 
 Or by using input/output redirection:
@@ -135,7 +135,7 @@ Amp CLI supports the following options:
 | `--log-file <value>`        | Set log file location (overrides the default location) |
 | `--dangerously-allow-all`   | Disable all command confirmation prompts (agent will execute all commands without asking) |
 | `--mcp-config <value>`      | JSON configuration or file path for MCP servers to merge with existing settings |
-| `--try-gpt5`                | Try GPT-5 as the primary agent model (limited time; see https://ampcode.com/news/gpt-5) |
+| `--try-gpt5`                | Try GPT-5 as the primary agent model (limited time; see `https://ampcode.com/news/`gpt-5) |
 | `-x, --execute [message]`   | Use execute mode, optionally with user message. In execute mode, agent will execute provided prompt (either as argument, or via stdin). Only last assistant message is printed. Enabled automatically when redirecting stdout. |
 
 ## Commands
@@ -169,8 +169,8 @@ Amp CLI includes several subcommands for enhanced functionality:
 
 | Variable            | Description |
 | ------------------- | ----------- |
-| `AMP_API_KEY`       | API key for Amp (see https://ampcode.com/settings) |
-| `AMP_URL`           | URL for the Amp service (default is https://ampcode.com/) |
+| `AMP_API_KEY`       | API key for Amp (see `https://ampcode.com/settings`) |
+| `AMP_URL`           | URL for the Amp service (default is `https://ampcode.com/`) |
 | `AMP_LOG_LEVEL`     | Set log level (can also use --log-level) |
 | `AMP_LOG_FILE`      | Set log file location (can also use --log-file) |
 | `AMP_SETTINGS_FILE` | Set settings file path (can also use --settings-file, default: ~/.config/amp/settings.json) |
@@ -196,7 +196,8 @@ amp -x "what file in this folder is in markdown format?"
 ```
 
 Output:
-```
+
+```text
 All Markdown files in this folder:
 - README.md (root)
 - AGENT.md (root)
@@ -212,7 +213,8 @@ amp --dangerously-allow-all -x "Rename all .markdown files to .md. Only print li
 ```
 
 Output:
-```
+
+```text
 - readme.markdown → readme.md
 - ghostty.markdown → ghostty.md
 ```
@@ -224,7 +226,8 @@ echo "commit all my unstaged changes" | amp -x --dangerously-allow-all
 ```
 
 Output:
-```
+
+```text
 Done. I have committed all your unstaged changes.
 ```
 
@@ -235,7 +238,8 @@ cat ~/.zshrc | amp -x "what does the 'beautiful' function do?"
 ```
 
 Output:
-```
+
+```text
 The `beautiful` function creates an infinite loop that prints the letter "o" in cycling colors every 0.2 seconds.
 ```
 
@@ -304,7 +308,7 @@ Sample configuration:
 
 Amp can use various tools to help with your tasks. When Amp wants to use a tool (like running a terminal command), it will ask for your confirmation:
 
-```
+```text
 Amp wants to run: git status
 
 Allow this command? [y/n/!]
