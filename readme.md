@@ -29,7 +29,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 
 - [Awesome Amp Code](#awesome-amp-code)
   - [Contents](#contents)
-    - [AGENT.md](#agentmd)
+    - [AGENTS.md](#agentsmd)
     - [Demos](#demos)
     - [Built with Amp](#built-with-amp)
     - [Amp CLI](#amp-cli)
@@ -44,12 +44,12 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 
 <!-- CONTENT -->
 
-### AGENT.md
+### AGENTS.md
 
-- [Sourcegraph Cody](https://sourcegraph.com/github.com/sourcegraph/cody/-/blob/AGENT.md)
+- [LangGraph](https://sourcegraph.com/github.com/langchain-ai/langgraph/-/blob/AGENTS.md)
+- [Sink](https://sourcegraph.com/github.com/ccbikai/Sink/-/blob/AGENT.md)
 - [Zoekt](https://sourcegraph.com/github.com/sourcegraph/zoekt/-/blob/AGENT.md)
 - [Ultimate MCP Client](https://github.com/Dicklesworthstone/ultimate_mcp_client/blob/main/AGENT.md)
-- [Laravel Appointment Booking System](https://sourcegraph.com/github.com/johnnyhuy/laravel-appointment-booking-system/-/blob/AGENT.md)
 - [MCP Advisor](https://sourcegraph.com/github.com/istarwyh/mcpadvisor/-/blob/AGENT.md)
 - [Use MCP](https://sourcegraph.com/github.com/modelcontextprotocol/use-mcp/-/blob/AGENT.md)
 
