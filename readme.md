@@ -93,13 +93,13 @@ Amp CLI can be seamlessly integrated with other command-line tools to enhance yo
 ##### ps aux
 
 ```bash
-ps aux > processes.txt && amp -x "identify processes consuming the most resources in processes.txt"
+ps aux > processes.txt | amp -x "identify processes consuming the most resources in processes.txt"
 ```
 
 ##### whois
 
 ```bash
-amp -x "organize and condense this whois information" && whois example.com | amp -x
+whois example.com | amp -x "organize and condense this whois information"
 ```
 
 ##### curl
