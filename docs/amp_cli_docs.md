@@ -87,7 +87,7 @@ In interactive mode:
 You can use Amp in non-interactive mode by piping content to it:
 
 ```bash
-echo "commit all my unstaged changes" | amp
+amp -x "commit all my unstaged changes"
 ```
 
 Or by using input/output redirection:
@@ -126,16 +126,16 @@ Amp CLI supports the following options:
 
 | Option                      | Description |
 | --------------------------- | ----------- |
-| `-V, --version`             | Output the version number |
 | `--visibility <visibility>` | Set thread visibility (private, public, team) |
+| `-V, --version`             | output the version number |
 | `--notifications`           | Enable sound notifications (enabled by default when not in execute mode) |
 | `--no-notifications`        | Disable sound notifications (enabled by default when not in execute mode) |
 | `--settings-file <value>`   | Custom settings file path (overrides the default location) |
 | `--log-level <value>`       | Set log level (error, warn, info, debug, audit) |
-| `--log-file <value>`        | Set log file location |
+| `--log-file <value>`        | Set log file location (overrides the default location) |
 | `--dangerously-allow-all`   | Disable all command confirmation prompts (agent will execute all commands without asking) |
 | `--mcp-config <value>`      | JSON configuration or file path for MCP servers to merge with existing settings |
-| `--try-gpt5`                | Try GPT-5 as the primary agent model (limited time; see https://ampcode.com/news/gpt-5) |
+| `--try-gpt5`                | Try GPT-5 as the primary agent model (limited time; see `https://ampcode.com/news/`gpt-5) |
 | `-x, --execute [message]`   | Use execute mode, optionally with user message. In execute mode, agent will execute provided prompt (either as argument, or via stdin). Only last assistant message is printed. Enabled automatically when redirecting stdout. |
 
 ## Commands
@@ -161,7 +161,7 @@ Amp CLI includes several subcommands for enhanced functionality:
 | `permissions test`    | Test permissions |
 | `permissions edit`    | Edit permissions |
 | `permissions add`     | Add permission rule |
-| `permissions migrate` | Migrate allowlist |
+
 | `doctor`              | Generate support bundle |
 | `update`              | Update Amp CLI |
 
@@ -169,8 +169,8 @@ Amp CLI includes several subcommands for enhanced functionality:
 
 | Variable            | Description |
 | ------------------- | ----------- |
-| `AMP_API_KEY`       | API key for Amp (see https://ampcode.com/settings) |
-| `AMP_URL`           | URL for the Amp service (default is https://ampcode.com/) |
+| `AMP_API_KEY`       | API key for Amp (see `https://ampcode.com/settings`) |
+| `AMP_URL`           | URL for the Amp service (default is `https://ampcode.com/`) |
 | `AMP_LOG_LEVEL`     | Set log level (can also use --log-level) |
 | `AMP_LOG_FILE`      | Set log file location (can also use --log-file) |
 | `AMP_SETTINGS_FILE` | Set settings file path (can also use --settings-file, default: ~/.config/amp/settings.json) |
@@ -195,10 +195,28 @@ Use execute mode (`--execute` or `-x`) to send a command to an agent, have it ex
 amp -x "what file in this folder is in markdown format?"
 ```
 
+Output:
+
+```text
+All Markdown files in this folder:
+- README.md (root)
+- AGENT.md (root)
+- Documentation (7 files in doc/)
+- Various README.md files in subdirectories
+Total: **13 Markdown files** found across the project.
+```
+
 Use execute mode and allow agent to use tools that would require approval:
 
 ```bash
 amp --dangerously-allow-all -x "Rename all .markdown files to .md. Only print list of renamed files."
+```
+
+Output:
+
+```text
+- readme.markdown → readme.md
+- ghostty.markdown → ghostty.md
 ```
 
 Pipe a command to the agent and use execute mode:
@@ -207,10 +225,22 @@ Pipe a command to the agent and use execute mode:
 echo "commit all my unstaged changes" | amp -x --dangerously-allow-all
 ```
 
+Output:
+
+```text
+Done. I have committed all your unstaged changes.
+```
+
 Pipe data to the agent and send along a prompt in execute mode:
 
 ```bash
 cat ~/.zshrc | amp -x "what does the 'beautiful' function do?"
+```
+
+Output:
+
+```text
+The `beautiful` function creates an infinite loop that prints the letter "o" in cycling colors every 0.2 seconds.
 ```
 
 Execute a prompt from a file and store final assistant message output in a file (redirecting stdout is equivalent to providing `-x`/`--execute`):
@@ -266,9 +296,9 @@ Sample configuration:
 - **`amp.notifications.enabled`**: Enable system sound notifications when agent completes tasks
 - **`amp.notifications.system.enabled`**: Enable system notifications when terminal is not focused
 - **`amp.mcpServers`**: Model Context Protocol servers to connect to for additional tools
-- **`amp.tools.disable`**: Array of tool names to disable. Use `builtin:toolname` to disable only the builtin tool with that name (allowing an MCP server to provide a tool by that name).
-- **`amp.permissions`**: Permission rules for tool calls. See `amp permissions --help`.
-- **`amp.guardedFiles.allowlist`**: File glob patterns allowed without confirmation; takes precedence over built-in denylist.
+- **`amp.tools.disable`**: Array of tool names to disable. Use 'builtin:toolname' to disable only the builtin tool with that name (allowing an MCP server to provide a tool by that name).
+- **`amp.permissions`**: Permission rules for tool calls. See amp permissions --help
+- **`amp.guardedFiles.allowlist`**: Array of file glob patterns that are allowed to be accessed without confirmation. Takes precedence over the built-in denylist.
 - **`amp.dangerouslyAllowAll`**: Disable all command confirmation prompts (agent will execute all commands without asking)
 - **`amp.git.commit.coauthor.enabled`**: Enable adding Amp as co-author in git commits
 - **`amp.git.commit.ampThread.enabled`**: Enable adding Amp-Thread trailer in git commits
@@ -278,7 +308,7 @@ Sample configuration:
 
 Amp can use various tools to help with your tasks. When Amp wants to use a tool (like running a terminal command), it will ask for your confirmation:
 
-```
+```text
 Amp wants to run: git status
 
 Allow this command? [y/n/!]
@@ -342,4 +372,4 @@ If you see an "Out of free credits" message, visit [ampcode.com/settings](https:
 
 ## Last updated
 
-2025-08-15
+2025-09-05

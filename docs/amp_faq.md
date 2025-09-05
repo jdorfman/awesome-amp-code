@@ -27,4 +27,4 @@ Source: [Discord](https://discord.com/channels/1369018393407127613/1392299889550
 
 ---
 
-_Last updated: 2025-07-12_
+>_Last updated: 2025-07-12_

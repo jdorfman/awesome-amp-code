@@ -29,9 +29,9 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 
 - [Awesome Amp Code](#awesome-amp-code)
   - [Contents](#contents)
-    - [AGENT.md](#agentmd)
-    - [Demos](#demos)
+    - [AGENTS.md](#agentsmd)
     - [Built with Amp](#built-with-amp)
+    - [Amp Integrations](#amp-integrations)
     - [Amp CLI](#amp-cli)
       - [Integration with Common CLI Tools](#integration-with-common-cli-tools)
         - [ps aux](#ps-aux)
@@ -44,21 +44,14 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 
 <!-- CONTENT -->
 
-### AGENT.md
+### AGENTS.md
 
-- [Sourcegraph Cody](https://sourcegraph.com/github.com/sourcegraph/cody/-/blob/AGENT.md)
+- [LangGraph](https://sourcegraph.com/github.com/langchain-ai/langgraph/-/blob/AGENTS.md)
+- [Sink](https://sourcegraph.com/github.com/ccbikai/Sink/-/blob/AGENT.md)
 - [Zoekt](https://sourcegraph.com/github.com/sourcegraph/zoekt/-/blob/AGENT.md)
 - [Ultimate MCP Client](https://github.com/Dicklesworthstone/ultimate_mcp_client/blob/main/AGENT.md)
-- [Laravel Appointment Booking System](https://sourcegraph.com/github.com/johnnyhuy/laravel-appointment-booking-system/-/blob/AGENT.md)
 - [MCP Advisor](https://sourcegraph.com/github.com/istarwyh/mcpadvisor/-/blob/AGENT.md)
 - [Use MCP](https://sourcegraph.com/github.com/modelcontextprotocol/use-mcp/-/blob/AGENT.md)
-
-### Demos
-
-- [Vibecoding a compiler](https://x.com/GeoffreyHuntley/status/1921336503805886894)
-- [Use Amp & Zapier MCP to turn `*//todo` code comments into Linear issues](https://x.com/jdorfman/status/1926007226969231861)
-- [Building a VSCode Extension with Amp](https://youtu.be/l-VUgg6NmDs?si=5M-D1YOyG4TWk6xS)
-- [Fun with pie charts](https://x.com/jdorfman/status/1935196938024243551)
 
 ### Built with Amp
 
@@ -71,7 +64,6 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Sourcegraph Amp AUR](https://github.com/AnirudhKonduru/sourcegraph-amp-aur) - Arch Linux AUR package for Sourcegraph Amp.
 - [PromptVault](https://hex.pm/packages/prompt_vault) - A library for managing prompts and templates in Elixir. [Watch stream](https://www.youtube.com/live/ojaoe3h8hXA?feature=share).
 - [Unofficial Amp Owner's Manual](https://superpromptor.com/amp-owners-manual/) - Comprehensive guide to getting the most out of Amp coding agent.
-- [VibeKanban](https://www.vibekanban.com/) - CLI tool for managing your Kanban boards.
 - [Sourcegraph Chrome Extension](https://chromewebstore.google.com/detail/sourcegraph/dgjhfomjieaadpoljlnidmbg) - Chrome extension for code search and navigation.
 - [CircuitPython Deploy](https://github.com/shantanugoel/circuitpython-deploy) - CircuitPython deployment tool.
 - [File-Based Amp Prompting Workflows](https://github.com/PriNova/amp-prompting-workflows) - Comprehensive collection of file-based sub-agent orchestration workflows for Amp with persistent document-based communication.
@@ -83,9 +75,14 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [SageMap](https://sagemap.netlify.app/) - Interactive belief mapping tool that transforms journal entries into visual networks revealing contradictions and connections in your thoughts.
 - [Jazzberry AI](https://jazzberry.ai/) - The AI Bug Finder.
 - [0.email](https://0.email/) - Zero is an AI-native email client that manages your inbox.
-- [Arden Stats](https://ardenstats.com/) - Compare your AI usage against everyone else and climb the leaderboards.
 - [VT Chat](https://vtchat.io.vn/) - VT Chat is a minimal, privacy-first AI chat application with advanced AI capabilities.
 - [Sniff](https://github.com/conikeec/sniff) - Misalignment detection in Vibe Coding loops.
+
+### Amp Integrations
+
+- [Amp Dash X](https://www.raycast.com/jdorfman/sourcegraph-amp-dash-x) - A Raycast extension for organizing and executing Amp Code prompts with the `-x` (execute) flag.
+- [VibeKanban](https://www.vibekanban.com/) - CLI tool for managing your Kanban boards.
+- [Conductor](https://x.com/charliebholtz/status/1963345520543633742) - Run a bunch of Amps in parallel.
 
 ### Amp CLI
 
@@ -125,6 +122,7 @@ npm list --json | amp -x "identify outdated or vulnerable dependencies"
 - [Raising an Agent Podcast](https://ampcode.com/podcast)
 - [Amp on X](https://x.com/ampcode)
 - [How to Build an Agent](https://ampcode.com/how-to-build-an-agent)
+- [Amp 101 YouTube Playlist](https://www.youtube.com/playlist?list=PL6zLuuRVa1_hLpciEULtzC3g3u4NJ6TVz)
 
 ### Contributing
 
