@@ -30,7 +30,6 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Awesome Amp Code](#awesome-amp-code)
   - [Contents](#contents)
     - [AGENTS.md](#agentsmd)
-    - [Demos](#demos)
     - [Built with Amp](#built-with-amp)
     - [Amp CLI](#amp-cli)
       - [Integration with Common CLI Tools](#integration-with-common-cli-tools)
@@ -52,13 +51,6 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Ultimate MCP Client](https://github.com/Dicklesworthstone/ultimate_mcp_client/blob/main/AGENT.md)
 - [MCP Advisor](https://sourcegraph.com/github.com/istarwyh/mcpadvisor/-/blob/AGENT.md)
 - [Use MCP](https://sourcegraph.com/github.com/modelcontextprotocol/use-mcp/-/blob/AGENT.md)
-
-### Demos
-
-- [Vibecoding a compiler](https://x.com/GeoffreyHuntley/status/1921336503805886894)
-- [Use Amp & Zapier MCP to turn `*//todo` code comments into Linear issues](https://x.com/jdorfman/status/1926007226969231861)
-- [Building a VSCode Extension with Amp](https://youtu.be/l-VUgg6NmDs?si=5M-D1YOyG4TWk6xS)
-- [Fun with pie charts](https://x.com/jdorfman/status/1935196938024243551)
 
 ### Built with Amp
 
