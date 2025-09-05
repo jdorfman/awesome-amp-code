@@ -31,6 +31,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
   - [Contents](#contents)
     - [AGENTS.md](#agentsmd)
     - [Built with Amp](#built-with-amp)
+    - [Amp Integrations](#amp-integrations)
     - [Amp CLI](#amp-cli)
       - [Integration with Common CLI Tools](#integration-with-common-cli-tools)
         - [ps aux](#ps-aux)
@@ -63,7 +64,6 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Sourcegraph Amp AUR](https://github.com/AnirudhKonduru/sourcegraph-amp-aur) - Arch Linux AUR package for Sourcegraph Amp.
 - [PromptVault](https://hex.pm/packages/prompt_vault) - A library for managing prompts and templates in Elixir. [Watch stream](https://www.youtube.com/live/ojaoe3h8hXA?feature=share).
 - [Unofficial Amp Owner's Manual](https://superpromptor.com/amp-owners-manual/) - Comprehensive guide to getting the most out of Amp coding agent.
-- [VibeKanban](https://www.vibekanban.com/) - CLI tool for managing your Kanban boards.
 - [Sourcegraph Chrome Extension](https://chromewebstore.google.com/detail/sourcegraph/dgjhfomjieaadpoljlnidmbg) - Chrome extension for code search and navigation.
 - [CircuitPython Deploy](https://github.com/shantanugoel/circuitpython-deploy) - CircuitPython deployment tool.
 - [File-Based Amp Prompting Workflows](https://github.com/PriNova/amp-prompting-workflows) - Comprehensive collection of file-based sub-agent orchestration workflows for Amp with persistent document-based communication.
@@ -78,6 +78,12 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Arden Stats](https://ardenstats.com/) - Compare your AI usage against everyone else and climb the leaderboards.
 - [VT Chat](https://vtchat.io.vn/) - VT Chat is a minimal, privacy-first AI chat application with advanced AI capabilities.
 - [Sniff](https://github.com/conikeec/sniff) - Misalignment detection in Vibe Coding loops.
+
+### Amp Integrations
+
+- [Amp Dash X](https://www.raycast.com/jdorfman/sourcegraph-amp-dash-x) - A Raycast extension for organizing and executing Amp Code prompts with the `-x` (execute) flag.
+- [VibeKanban](https://www.vibekanban.com/) - CLI tool for managing your Kanban boards.
+- [Conductor](https://x.com/charliebholtz/status/1963345520543633742) - Run a bunch of Amps in parallel.
 
 ### Amp CLI
 
@@ -117,6 +123,7 @@ npm list --json | amp -x "identify outdated or vulnerable dependencies"
 - [Raising an Agent Podcast](https://ampcode.com/podcast)
 - [Amp on X](https://x.com/ampcode)
 - [How to Build an Agent](https://ampcode.com/how-to-build-an-agent)
+- [Amp 101 YouTube Playlist](https://www.youtube.com/playlist?list=PL6zLuuRVa1_hLpciEULtzC3g3u4NJ6TVz)
 
 ### Contributing
 
