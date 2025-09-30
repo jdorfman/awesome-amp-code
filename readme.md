@@ -1,5 +1,5 @@
 <!--lint ignore awesome-toc-->
-<div align="center">
+<div align='center'>
 
 <!-- title -->
 
@@ -15,7 +15,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 
 <!-- image -->
 
-<img width=60% src="https://github.com/user-attachments/assets/00c0b998-0c2c-4b7b-bed7-913039bf00b5" />
+<img width=60% src='https://github.com/user-attachments/assets/00c0b998-0c2c-4b7b-bed7-913039bf00b5' />
 
 <!-- description -->
 
@@ -75,7 +75,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [SageMap](https://sagemap.netlify.app/) - Interactive belief mapping tool that transforms journal entries into visual networks revealing contradictions and connections in your thoughts.
 - [Jazzberry AI](https://jazzberry.ai/) - The AI Bug Finder.
 - [0.email](https://0.email/) - Zero is an AI-native email client that manages your inbox.
-- [VT Chat](https://vtchat.io.vn/) - VT Chat is a minimal, privacy-first AI chat application with advanced AI capabilities.
+- [VT Chat](https://vtchat.io.vn/) - A minimal, privacy-first AI chat application with advanced AI capabilities.
 - [Sniff](https://github.com/conikeec/sniff) - Misalignment detection in Vibe Coding loops.
 
 ### Amp Integrations
@@ -83,6 +83,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Amp Dash X](https://www.raycast.com/jdorfman/sourcegraph-amp-dash-x) - A Raycast extension for organizing and executing Amp Code prompts with the `-x` (execute) flag.
 - [VibeKanban](https://www.vibekanban.com/) - CLI tool for managing your Kanban boards.
 - [Conductor](https://x.com/charliebholtz/status/1963345520543633742) - Run a bunch of Amps in parallel.
+- [amp.nvim](https://github.com/sourcegraph/amp.nvim) - Official Neovim plugin for Amp coding agent.
 - [nvim-amp](https://github.com/aliou/nvim-amp) - Neovim plugin providing syntax highlighting and support for Amp permission and agent files.
 
 ### Amp CLI
@@ -94,25 +95,25 @@ Amp CLI can be seamlessly integrated with other command-line tools to enhance yo
 ##### ps aux
 
 ```bash
-ps aux > processes.txt | amp -x "identify processes consuming the most resources in processes.txt"
+ps aux > processes.txt | amp -x 'identify processes consuming the most resources in processes.txt'
 ```
 
 ##### whois
 
 ```bash
-whois example.com | amp -x "organize and condense this whois information"
+whois example.com | amp -x 'organize and condense this whois information'
 ```
 
 ##### curl
 
 ```bash
-curl -Is https://github.com > headers.txt && amp -x "analyze the http headers in headers.txt and determine the tech stack"
+curl -Is https://github.com > headers.txt && amp -x 'analyze the http headers in headers.txt and determine the tech stack'
 ```
 
 ##### npm
 
 ```bash
-npm list --json | amp -x "identify outdated or vulnerable dependencies"
+npm list --json | amp -x 'identify outdated or vulnerable dependencies'
 ```
 
 ### Official Amp Links
