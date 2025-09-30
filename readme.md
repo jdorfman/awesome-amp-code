@@ -83,6 +83,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Amp Dash X](https://www.raycast.com/jdorfman/sourcegraph-amp-dash-x) - A Raycast extension for organizing and executing Amp Code prompts with the `-x` (execute) flag.
 - [VibeKanban](https://www.vibekanban.com/) - CLI tool for managing your Kanban boards.
 - [Conductor](https://x.com/charliebholtz/status/1963345520543633742) - Run a bunch of Amps in parallel.
+- [amp.nvim](https://github.com/sourcegraph/amp.nvim) - Official Neovim plugin for Amp coding agent.
 - [nvim-amp](https://github.com/aliou/nvim-amp) - Neovim plugin providing syntax highlighting and support for Amp permission and agent files.
 
 ### Amp CLI
