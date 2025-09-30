@@ -1,5 +1,5 @@
 <!--lint ignore awesome-toc-->
-<div align="center">
+<div align='center'>
 
 <!-- title -->
 
@@ -15,7 +15,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 
 <!-- image -->
 
-<img width=60% src="https://github.com/user-attachments/assets/00c0b998-0c2c-4b7b-bed7-913039bf00b5" />
+<img width=60% src='https://github.com/user-attachments/assets/00c0b998-0c2c-4b7b-bed7-913039bf00b5' />
 
 <!-- description -->
 
@@ -95,25 +95,25 @@ Amp CLI can be seamlessly integrated with other command-line tools to enhance yo
 ##### ps aux
 
 ```bash
-ps aux > processes.txt | amp -x "identify processes consuming the most resources in processes.txt"
+ps aux > processes.txt | amp -x 'identify processes consuming the most resources in processes.txt'
 ```
 
 ##### whois
 
 ```bash
-whois example.com | amp -x "organize and condense this whois information"
+whois example.com | amp -x 'organize and condense this whois information'
 ```
 
 ##### curl
 
 ```bash
-curl -Is https://github.com > headers.txt && amp -x "analyze the http headers in headers.txt and determine the tech stack"
+curl -Is https://github.com > headers.txt && amp -x 'analyze the http headers in headers.txt and determine the tech stack'
 ```
 
 ##### npm
 
 ```bash
-npm list --json | amp -x "identify outdated or vulnerable dependencies"
+npm list --json | amp -x 'identify outdated or vulnerable dependencies'
 ```
 
 ### Official Amp Links
