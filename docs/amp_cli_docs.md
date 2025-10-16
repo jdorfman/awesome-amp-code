@@ -124,68 +124,67 @@ export AMP_API_KEY=your_amp_api_key_here
 
 Amp CLI supports the following options:
 
-| Option                      | Description |
-| --------------------------- | ----------- |
-| `--visibility <visibility>` | Set thread visibility (private, public, workspace, group) |
-| `-V, --version`             | output the version number |
-| `--notifications`           | Enable sound notifications (enabled by default when not in execute mode) |
-| `--no-notifications`        | Disable sound notifications (enabled by default when not in execute mode) |
-| `--settings-file <value>`   | Custom settings file path (overrides the default location) |
-| `--log-level <value>`       | Set log level (error, warn, info, debug, audit) |
-| `--log-file <value>`        | Set log file location (overrides the default location) |
-| `--dangerously-allow-all`   | Disable all command confirmation prompts (agent will execute all commands without asking) |
-| `--mcp-config <value>`      | JSON configuration or file path for MCP servers to merge with existing settings |
-| `--jetbrains`               | Enable JetBrains integration. When enabled, Amp automatically includes your open JetBrains file and text selection with every message. |
-| `--no-jetbrains`            | Disable JetBrains integration. |
-| `--ide`                     | Enable IDE connection (default). When enabled, Amp automatically includes your open IDE's file and text selection with every message. |
-| `--no-ide`                  | Disable IDE connection. |
-| `--stream-json`             | When used with --execute, output in Claude Code compatible stream JSON format instead of plain text. |
-| `--stream-json-input`       | Read JSON Lines user messages from stdin. Requires both --execute and --stream-json. |
-| `-x, --execute [message]`   | Use execute mode, optionally with user message. In execute mode, agent will execute provided prompt (either as argument, or via stdin). Only last assistant message is printed. Enabled automatically when redirecting stdout. |
+| Option                    | Description                                                                                                                                                                                                                    |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| --visibility <visibility> | Set thread visibility (private, public, workspace, group)                                                                                                                                                                      |
+| -V, --version             | output the version number                                                                                                                                                                                                      |
+| --notifications           | Enable sound notifications (enabled by default when not in execute mode)                                                                                                                                                       |
+| --no-notifications        | Disable sound notifications (enabled by default when not in execute mode)                                                                                                                                                      |
+| --settings-file <value>   | Custom settings file path (overrides the default location)                                                                                                                                                                     |
+| --log-level <value>       | Set log level (error, warn, info, debug, audit)                                                                                                                                                                                |
+| --log-file <value>        | Set log file location (overrides the default location)                                                                                                                                                                         |
+| --dangerously-allow-all   | Disable all command confirmation prompts (agent will execute all commands without asking)                                                                                                                                      |
+| --mcp-config <value>      | JSON configuration or file path for MCP servers to merge with existing settings                                                                                                                                                |
+| --jetbrains               | Enable JetBrains integration. When enabled, Amp automatically includes your open JetBrains file and text selection with every message.                                                                                         |
+| --no-jetbrains            | Disable JetBrains integration.                                                                                                                                                                                                 |
+| --ide                     | Enable IDE connection (default). When enabled, Amp automatically includes your open IDE's file and text selection with every message.                                                                                          |
+| --no-ide                  | Disable IDE connection.                                                                                                                                                                                                        |
+| --stream-json             | When used with --execute, output in Claude Code compatible stream JSON format instead of plain text.                                                                                                                           |
+| --stream-json-input       | Read JSON Lines user messages from stdin. Requires both --execute and --stream-json.                                                                                                                                           |
+| -x, --execute \[message\] | Use execute mode, optionally with user message. In execute mode, agent will execute provided prompt (either as argument, or via stdin). Only last assistant message is printed. Enabled automatically when redirecting stdout. |
 
 ## Commands
 
 Amp CLI includes several subcommands for enhanced functionality:
 
-| Command               | Description |
-| --------------------- | ----------- |
-| `logout`              | Log out by removing stored API key |
-| `login`               | Log in to Amp |
-| `threads`             | Manage threads |
-| `threads new`         | Create a new thread |
-| `threads continue`    | Continue an existing thread |
-| `threads fork`        | Fork an existing thread |
-| `threads list`        | List all threads |
-| `threads share`       | Share a thread |
-| `threads compact`     | Compact a thread |
-| `tools`               | Tool management commands |
-| `tools list`          | List all active tools (including MCP tools) |
-| `tools show`          | Show details about an active tool |
-| `tools make`          | Sets up a skeleton tool in your toolbox |
-| `tools use`           | Invoke a tool with arguments or JSON input from stdin |
-| `permissions`         | Manage permissions |
-| `permissions list`    | List permissions |
-| `permissions test`    | Test permissions |
-| `permissions edit`    | Edit permissions |
-| `permissions add`     | Add permission rule |
-| `mcp`                 | Manage MCP servers |
-| `mcp add`             | Add an MCP server configuration |
-| `mcp remove`          | Remove an MCP server configuration |
-| `mcp doctor`          | Check MCP server status |
-| `connect`             | Connect CLI to web interface for multi-thread management |
-
-| `doctor`              | Generate support bundle |
-| `update`              | Update Amp CLI |
+| Command            | Description                                              |
+| ------------------ | -------------------------------------------------------- |
+| `logout`           | Log out by removing stored API key                       |
+| `login`            | Log in to Amp                                            |
+| `threads`          | Manage threads                                           |
+| `threads new`      | Create a new thread                                      |
+| `threads continue` | Continue an existing thread                              |
+| `threads fork`     | Fork an existing thread                                  |
+| `threads list`     | List all threads                                         |
+| `threads share`    | Share a thread                                           |
+| `threads compact`  | Compact a thread                                         |
+| `tools`            | Tool management commands                                 |
+| `tools list`       | List all active tools (including MCP tools)              |
+| `tools show`       | Show details about an active tool                        |
+| `tools make`       | Sets up a skeleton tool in your toolbox                  |
+| `tools use`        | Invoke a tool with arguments or JSON input from stdin    |
+| `permissions`      | Manage permissions                                       |
+| `permissions list` | List permissions                                         |
+| `permissions test` | Test permissions                                         |
+| `permissions edit` | Edit permissions                                         |
+| `permissions add`  | Add permission rule                                      |
+| `mcp`              | Manage MCP servers                                       |
+| `mcp add`          | Add an MCP server configuration                          |
+| `mcp remove`       | Remove an MCP server configuration                       |
+| `mcp doctor`       | Check MCP server status                                  |
+| `connect`          | Connect CLI to web interface for multi-thread management |
+| `doctor`           | Generate support bundle                                  |
+| `update`           | Update Amp CLI                                           |
 
 ## Environment Variables
 
-| Variable            | Description |
-| ------------------- | ----------- |
-| `AMP_API_KEY`       | API key for Amp (see `https://ampcode.com/settings`) |
-| `AMP_URL`           | URL for the Amp service (default is `https://ampcode.com/`) |
-| `AMP_LOG_LEVEL`     | Set log level (can also use --log-level) |
-| `AMP_LOG_FILE`      | Set log file location (can also use --log-file) |
-| `AMP_SETTINGS_FILE` | Set settings file path (can also use --settings-file, default: ~/.config/amp/settings.json) |
+| Variable          | Description                                                                                 |
+| ----------------- | ------------------------------------------------------------------------------------------- |
+| AMP_API_KEY       | API key for Amp (see https://ampcode.com/settings)                                          |
+| AMP_URL           | URL for the Amp service (default is https://ampcode.com/)                                   |
+| AMP_LOG_LEVEL     | Set log level (can also use --log-level)                                                    |
+| AMP_LOG_FILE      | Set log file location (can also use --log-file)                                             |
+| AMP_SETTINGS_FILE | Set settings file path (can also use --settings-file, default: ~/.config/amp/settings.json) |
 
 ## Examples
 
@@ -298,19 +297,13 @@ Sample configuration:
       ]
     }
   },
-  "amp.tools.disable": [
-    "browser_navigate",
-    "builtin:edit_file"
-  ],
+  "amp.tools.disable": ["browser_navigate", "builtin:edit_file"],
   "amp.permissions": [
     {
       "tool": "Bash",
       "action": "ask",
       "matches": {
-        "cmd": [
-          "git push*",
-          "git commit*"
-        ]
+        "cmd": ["git push*", "git commit*"]
       }
     }
   ],
