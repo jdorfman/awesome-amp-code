@@ -126,7 +126,7 @@ Amp CLI supports the following options:
 
 | Option                      | Description |
 | --------------------------- | ----------- |
-| `--visibility <visibility>` | Set thread visibility (private, public, team) |
+| `--visibility <visibility>` | Set thread visibility (private, public, workspace, group) |
 | `-V, --version`             | output the version number |
 | `--notifications`           | Enable sound notifications (enabled by default when not in execute mode) |
 | `--no-notifications`        | Disable sound notifications (enabled by default when not in execute mode) |
@@ -135,7 +135,12 @@ Amp CLI supports the following options:
 | `--log-file <value>`        | Set log file location (overrides the default location) |
 | `--dangerously-allow-all`   | Disable all command confirmation prompts (agent will execute all commands without asking) |
 | `--mcp-config <value>`      | JSON configuration or file path for MCP servers to merge with existing settings |
-| `--try-gpt5`                | Try GPT-5 as the primary agent model (limited time; see `https://ampcode.com/news/`gpt-5) |
+| `--jetbrains`               | Enable JetBrains integration. When enabled, Amp automatically includes your open JetBrains file and text selection with every message. |
+| `--no-jetbrains`            | Disable JetBrains integration. |
+| `--ide`                     | Enable IDE connection (default). When enabled, Amp automatically includes your open IDE's file and text selection with every message. |
+| `--no-ide`                  | Disable IDE connection. |
+| `--stream-json`             | When used with --execute, output in Claude Code compatible stream JSON format instead of plain text. |
+| `--stream-json-input`       | Read JSON Lines user messages from stdin. Requires both --execute and --stream-json. |
 | `-x, --execute [message]`   | Use execute mode, optionally with user message. In execute mode, agent will execute provided prompt (either as argument, or via stdin). Only last assistant message is printed. Enabled automatically when redirecting stdout. |
 
 ## Commands
@@ -156,11 +161,18 @@ Amp CLI includes several subcommands for enhanced functionality:
 | `tools`               | Tool management commands |
 | `tools list`          | List all active tools (including MCP tools) |
 | `tools show`          | Show details about an active tool |
+| `tools make`          | Sets up a skeleton tool in your toolbox |
+| `tools use`           | Invoke a tool with arguments or JSON input from stdin |
 | `permissions`         | Manage permissions |
 | `permissions list`    | List permissions |
 | `permissions test`    | Test permissions |
 | `permissions edit`    | Edit permissions |
 | `permissions add`     | Add permission rule |
+| `mcp`                 | Manage MCP servers |
+| `mcp add`             | Add an MCP server configuration |
+| `mcp remove`          | Remove an MCP server configuration |
+| `mcp doctor`          | Check MCP server status |
+| `connect`             | Connect CLI to web interface for multi-thread management |
 
 | `doctor`              | Generate support bundle |
 | `update`              | Update Amp CLI |
@@ -249,6 +261,24 @@ Execute a prompt from a file and store final assistant message output in a file 
 amp < prompt.txt > output.txt
 ```
 
+Add an MCP server with a local command:
+
+```bash
+amp mcp add context7 -- npx -y @upstash/context7-mcp
+```
+
+Add an MCP server with environment variables:
+
+```bash
+amp mcp add postgres --env PGUSER=orb -- npx -y @modelcontextprotocol/server-postgres postgresql://localhost/orbing
+```
+
+Add a remote MCP server:
+
+```bash
+amp mcp add hugging-face https://huggingface.co/mcp
+```
+
 ## Configuration
 
 Amp can be configured using a JSON settings file located at `~/.config/amp/settings.json`. All settings use the "amp." prefix.
@@ -287,7 +317,8 @@ Sample configuration:
   "amp.guardedFiles.allowlist": [],
   "amp.dangerouslyAllowAll": false,
   "amp.git.commit.coauthor.enabled": true,
-  "amp.git.commit.ampThread.enabled": true
+  "amp.git.commit.ampThread.enabled": true,
+  "amp.updates.mode": "auto"
 }
 ```
 
@@ -303,6 +334,7 @@ Sample configuration:
 - **`amp.git.commit.coauthor.enabled`**: Enable adding Amp as co-author in git commits
 - **`amp.git.commit.ampThread.enabled`**: Enable adding Amp-Thread trailer in git commits
 - **`amp.proxy`**: Proxy URL used for both HTTP and HTTPS requests to the Amp server
+- **`amp.updates.mode`**: Control update checking behavior: "warn" shows update notifications, "disabled" turns off checking, "auto" automatically runs update.
 
 ## Tool Usage
 
@@ -372,4 +404,4 @@ If you see an "Out of free credits" message, visit [ampcode.com/settings](https:
 
 ## Last updated
 
-2025-09-05
+2025-10-16
