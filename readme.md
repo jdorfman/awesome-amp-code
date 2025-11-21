@@ -85,6 +85,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Conductor](https://x.com/charliebholtz/status/1963345520543633742) - Run a bunch of Amps in parallel.
 - [amp.nvim](https://github.com/sourcegraph/amp.nvim) - Official Neovim plugin for Amp coding agent.
 - [nvim-amp](https://github.com/aliou/nvim-amp) - Neovim plugin providing syntax highlighting and support for Amp permission and agent files.
+- [Amp ACP](https://github.com/tao12345666333/amp-acp) - ACP adapter for Amp Code, enabling Amp to work in the Zed editor. 
 
 ### Amp CLI
 
