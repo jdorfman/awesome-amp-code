@@ -135,3 +135,9 @@ npm list --json | amp -x 'identify outdated or vulnerable dependencies'
 #### Contributors
 
 [Thanks goes to these contributors](https://github.com/jdorfman/awesome-amp-code/graphs/contributors)!
+
+---
+
+### Credits
+
+Originally created and maintained by [Justin Dorfman](https://www.justindorfman.com/).
