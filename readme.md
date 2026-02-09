@@ -34,6 +34,7 @@ An **unofficial** curated list of resources for Amp, an AI coding agent by Sourc
 - [Editor & IDE Integrations](#editor--ide-integrations)
 - [CLI Usage](#cli-usage)
 - [Security & Best Practices](#security--best-practices)
+- [Community](#community)
 - [Contributing](#contributing)
 
 <!-- CONTENT -->
@@ -148,6 +149,10 @@ When using AI coding agents, consider these security aspects:
 - Never include API keys or secrets in prompts or AGENTS.md files
 - Consider running agents in isolated environments for sensitive projects
 - Vet MCP servers before installation
+
+### Community
+
+- 💬 [Relens Community](https://relens.ai/community) - Join the AI coding agents community to share tips, tricks, and workflows.
 
 ### Contributing
 
