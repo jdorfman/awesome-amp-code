@@ -59,7 +59,6 @@ AGENTS.md files provide context and instructions to AI coding agents about your 
 **Examples of AGENTS.md in open source projects:**
 
 - [LangGraph](https://sourcegraph.com/github.com/langchain-ai/langgraph/-/blob/AGENTS.md) - LangChain's graph-based agent framework.
-- [Sink](https://sourcegraph.com/github.com/ccbikai/Sink/-/blob/AGENT.md) - Link shortener with analytics.
 - [Zoekt](https://sourcegraph.com/github.com/sourcegraph/zoekt/-/blob/AGENT.md) - Fast code search by Sourcegraph.
 - [Ultimate MCP Client](https://github.com/Dicklesworthstone/ultimate_mcp_client/blob/main/AGENT.md) - Comprehensive MCP client implementation.
 - [MCP Advisor](https://sourcegraph.com/github.com/istarwyh/mcpadvisor/-/blob/AGENT.md) - MCP server advisor tool.
@@ -80,7 +79,6 @@ Model Context Protocol (MCP) enables AI agents to interact with external tools a
 **Documentation & Guides:**
 
 - [Unofficial Amp CLI Documentation](https://github.com/jdorfman/awesome-amp-code/blob/main/docs/amp_cli_docs.md) - Comprehensive documentation for Amp CLI with examples and best practices.
-- [Unofficial Amp Owner's Manual](https://superpromptor.com/amp-owners-manual/) - Community guide to getting the most out of Amp.
 - [File-Based Amp Prompting Workflows](https://github.com/PriNova/amp-prompting-workflows) - Collection of file-based sub-agent orchestration workflows for Amp.
 
 **Development Tools:**
