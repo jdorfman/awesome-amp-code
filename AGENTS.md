@@ -21,9 +21,9 @@
 - Main content is in amp_cli_docs.md and readme.md
 - CI pipeline uses awesome-lint and awesome_bot to validate content
 
-## Add link to Built With section
+## Add link to Projects & Tools section
 
-When `/builtwith` followed by a link is included in a prompt, you will add the link to the Built With section of the README.md file. If there is a numbered list of urls, create subagents to complete the tasks.
+When `/builtwith` followed by a link is included in a prompt, you will add the link to the "Projects & Tools" section of the README.md file under the appropriate subcategory (Documentation & Guides, Development Tools, Applications Built with Amp, or Browser & Misc). If there is a numbered list of urls, create subagents to complete the tasks.
 
 ## Add link to @docs/amp_faq.md
 
