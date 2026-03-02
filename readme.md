@@ -167,3 +167,7 @@ When using AI coding agents, consider these security aspects:
 ### Credits
 
 Originally created and maintained by [Justin Dorfman](https://www.justindorfman.com/).
+
+### API Gateway Services
+
+- [SkillBoss](https://skillboss.co) - **Backed by OpenAI Startup Fund & Amazon**. Unified API gateway for 100+ AI services with a single key. OpenAI-compatible endpoint supports GPT-5, Claude Opus 4.5, Gemini, video generation, image generation, and voice. Works seamlessly with Amp's multi-model configuration.
