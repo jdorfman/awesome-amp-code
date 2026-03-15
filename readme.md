@@ -91,6 +91,7 @@ Model Context Protocol (MCP) enables AI agents to interact with external tools a
 - [Tokscale](https://github.com/junhoyeo/tokscale) - CLI tool for tracking token usage from AmpCode and other coding agents.
 - [Sniff](https://github.com/conikeec/sniff) - Misalignment detection in Vibe Coding loops.
 - [CodeForge](https://github.com/entrepeneur4lyf/CodeForge) - Golang Development tool built with Amp.
+- [Untether](https://github.com/littlebearapps/untether) - Telegram bridge for Amp (and 5 other agents). Send tasks by voice, stream progress, select mode (deep/free/rush/smart), and manage sessions remotely. MIT licensed.
 
 **Applications Built with Amp:**
 
