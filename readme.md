@@ -89,6 +89,7 @@ Model Context Protocol (MCP) enables AI agents to interact with external tools a
 - [Conductor](https://x.com/charliebholtz/status/1963345520543633742) - Run a bunch of Amps in parallel.
 - [Amp Code Review CI](https://github.com/madhukarkumar/amp-code-review-ci) - Continuous integration tool for automated code reviews using Amp.
 - [Tokscale](https://github.com/junhoyeo/tokscale) - CLI tool for tracking token usage from AmpCode and other coding agents.
+- [deja-vu](https://github.com/vshulcz/deja-vu) - Memory for Amp built from the sessions already on disk: indexes the threads Amp, Claude Code, Codex, Cursor and other agents wrote locally, and recalls the relevant one via an Amp plugin file and an MCP server. One Go binary, no model, nothing leaves the machine.
 - [Sniff](https://github.com/conikeec/sniff) - Misalignment detection in Vibe Coding loops.
 - [CodeForge](https://github.com/entrepeneur4lyf/CodeForge) - Golang Development tool built with Amp.
 
